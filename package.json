@@ -1,0 +1,15 @@
+{
+  "name": "cognitive",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "cognitive digital-twin skill package with RoleBench-inspired evaluation assets.",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "eval:build-nuwa-seed": "node scripts/evals/build-nuwa-all-role-complete-seed.mjs",
+    "eval:two-stage:dry-run": "node scripts/evals/run-cognitive-two-stage-battle.mjs --dry-run",
+    "eval:codex-mounted-pilot": "node scripts/evals/generate-codex-mounted-all-nuwa-results.mjs"
+  }
+}

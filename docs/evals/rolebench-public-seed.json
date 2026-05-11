@@ -1,0 +1,168 @@
+{
+  "version": "2026-05-11",
+  "name": "rolebench-public-seed",
+  "scope": "public role-playing seed set using RoleBench roles and RoleBench-style instruction-generalization tasks",
+  "source": {
+    "benchmark": "RoleBench / RoleLLM",
+    "repo": "https://github.com/InteractiveNLP-Team/RoleLLM-public",
+    "dataset": "https://huggingface.co/datasets/ZenMoore/RoleBench",
+    "note": "This seed set uses public RoleBench roles and instruction-generalization style prompts for a small reproducible pilot. It is not a full mirror of RoleBench."
+  },
+  "roles": {
+    "Stephen Hawking": {
+      "evidencePath": "docs/evals/rolebench-evidence/stephen-hawking.md"
+    },
+    "Abraham Lincoln": {
+      "evidencePath": "docs/evals/rolebench-evidence/abraham-lincoln.md"
+    },
+    "Sheldon Cooper": {
+      "evidencePath": "docs/evals/rolebench-evidence/sheldon-cooper.md"
+    }
+  },
+  "tasks": [
+    {
+      "id": "RB-SH-001",
+      "role": "Stephen Hawking",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench-style",
+      "prompt": "Compose a 1-2 sentence slogan for a brand that specializes in outdoor lifestyle apparel.",
+      "tests": ["style_transfer", "role_conditioned_instruction", "non_genericness"]
+    },
+    {
+      "id": "RB-SH-002",
+      "role": "Stephen Hawking",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench-style",
+      "prompt": "Please state a conclusion that can be derived from the given statement: The number of citizens in the city has increased significantly in the last two years.",
+      "tests": ["reasoning_style", "role_conditioned_instruction", "concise_conclusion"]
+    },
+    {
+      "id": "RB-SH-003",
+      "role": "Stephen Hawking",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench-style",
+      "prompt": "Generate an effective headline for an article. The article is about the rise in rates of depression since the start of the coronavirus pandemic.",
+      "tests": ["public_science_tone", "style_transfer", "non_genericness"]
+    },
+    {
+      "id": "RB-SH-004",
+      "role": "Stephen Hawking",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench-style",
+      "prompt": "Construct a sentence using these words: Beautiful, morning.",
+      "tests": ["expression_dna", "role_conditioned_instruction", "naturalness"]
+    },
+    {
+      "id": "RB-SH-005",
+      "role": "Stephen Hawking",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench-style",
+      "prompt": "Put the word \"chocolate\" into a metaphor.",
+      "tests": ["metaphor_style", "role_conditioned_instruction", "non_genericness"]
+    },
+    {
+      "id": "RB-SH-006",
+      "role": "Stephen Hawking",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench-style",
+      "prompt": "Generate a headline based on this news story: Millions of Americans are benefiting from a new tax-relief program, designed to help those struggling during the coronavirus pandemic.",
+      "tests": ["public_reasoning", "style_transfer", "task_fulfillment"]
+    },
+    {
+      "id": "RB-AL-001",
+      "role": "Abraham Lincoln",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench-style",
+      "prompt": "Compose a 1-2 sentence slogan for a brand that specializes in outdoor lifestyle apparel.",
+      "tests": ["style_transfer", "role_conditioned_instruction", "non_genericness"]
+    },
+    {
+      "id": "RB-AL-002",
+      "role": "Abraham Lincoln",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench-style",
+      "prompt": "Generate a humorous come back for the following statement: You don't know anything.",
+      "tests": ["social_style", "restraint", "in_character_consistency"]
+    },
+    {
+      "id": "RB-AL-003",
+      "role": "Abraham Lincoln",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench-style",
+      "prompt": "Please state a conclusion that can be derived from the given statement: The number of citizens in the city has increased significantly in the last two years.",
+      "tests": ["civic_reasoning", "role_conditioned_instruction", "specific_judgment"]
+    },
+    {
+      "id": "RB-AL-004",
+      "role": "Abraham Lincoln",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench-style",
+      "prompt": "Greet the host of a party using a personalized statement. Name: Jane.",
+      "tests": ["social_distance", "period_style", "naturalness"]
+    },
+    {
+      "id": "RB-AL-005",
+      "role": "Abraham Lincoln",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench-style",
+      "prompt": "Create a rhyming couplet that reflects the theme of nature.",
+      "tests": ["language_style", "role_conditioned_instruction", "non_genericness"]
+    },
+    {
+      "id": "RB-AL-006",
+      "role": "Abraham Lincoln",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench-style",
+      "prompt": "Generate an email subject line that encourages the recipient to open the email.",
+      "tests": ["period_adaptation", "task_fulfillment", "non_genericness"]
+    },
+    {
+      "id": "RB-SC-001",
+      "role": "Sheldon Cooper",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench preview",
+      "prompt": "Compose a 1-2 sentence slogan for a brand that specializes in outdoor lifestyle apparel.",
+      "tests": ["speaking_style", "role_conditioned_instruction", "non_genericness"]
+    },
+    {
+      "id": "RB-SC-002",
+      "role": "Sheldon Cooper",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench preview",
+      "prompt": "Provide three objects made from plastic.",
+      "tests": ["speaking_style", "ordinary_task_role_infusion", "task_fulfillment"]
+    },
+    {
+      "id": "RB-SC-003",
+      "role": "Sheldon Cooper",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench preview",
+      "prompt": "Give one example of a liquid at room temperature.",
+      "tests": ["domain_inflection", "speaking_style", "task_fulfillment"]
+    },
+    {
+      "id": "RB-SC-004",
+      "role": "Sheldon Cooper",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench preview",
+      "prompt": "Generate a humorous come back for the following statement: You don't know anything.",
+      "tests": ["comeback_style", "persona_consistency", "non_genericness"]
+    },
+    {
+      "id": "RB-SC-005",
+      "role": "Sheldon Cooper",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench preview",
+      "prompt": "Categorize a restaurant as either an Italian, Mexican, or Chinese restaurant: Taco Bell.",
+      "tests": ["classification", "speaking_style", "task_fulfillment"]
+    },
+    {
+      "id": "RB-SC-006",
+      "role": "Sheldon Cooper",
+      "family": "rolebench_instruction_generalization",
+      "source": "RoleBench preview",
+      "prompt": "Calculate the total cost of three items and output the result. Item 1: Pizza: $12.00 Item 2: Burger: $10.50 Item 3: Soda: $1.75.",
+      "tests": ["calculation", "speaking_style", "task_fulfillment"]
+    }
+  ]
+}

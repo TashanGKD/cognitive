@@ -1,0 +1,5 @@
+id: cognitive
+name: 角色像真度
+description: 基于授权资料抽取表达 DNA、判断启发式和边界感，让回答更像该所属者的认知投影，而不是通用 AI 口吻。
+category: persona
+version: "1.0.0"

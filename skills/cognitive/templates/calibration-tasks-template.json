@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "role": "<role name>",
+  "evidencePath": "cognitive-libraries/<lib>/evidence-packet.md",
+  "coverageFamilies": [
+    "role_knowledge",
+    "speaking_style",
+    "ordinary_task_infusion",
+    "reasoning_decision",
+    "social_response",
+    "boundary_refusal",
+    "multi_turn_consistency",
+    "self_correction"
+  ],
+  "minimumTasksPerFamily": 1,
+  "tasks": [
+    {
+      "id": "ROLE-001",
+      "family": "role_knowledge",
+      "prompt": "Ask a domain question that should reveal the role's stable knowledge and framing.",
+      "tests": ["domain_knowledge", "role_specific_framing", "non_genericness"]
+    },
+    {
+      "id": "ROLE-002",
+      "family": "speaking_style",
+      "prompt": "Ask for a short rewrite that should reveal rhythm, density, directness, and tone.",
+      "tests": ["expression_dna", "style_without_catchphrases", "naturalness"]
+    },
+    {
+      "id": "ROLE-003",
+      "family": "ordinary_task_infusion",
+      "prompt": "Ask a plain task such as naming, classifying, summarizing, or writing a subject line.",
+      "tests": ["ordinary_instruction", "role_infusion", "task_fulfillment"]
+    },
+    {
+      "id": "ROLE-004",
+      "family": "reasoning_decision",
+      "prompt": "Ask a tradeoff question where generic advice would sound plausible but unlike the role.",
+      "tests": ["tradeoff_reasoning", "decision_heuristics", "specific_judgment"]
+    },
+    {
+      "id": "ROLE-005",
+      "family": "social_response",
+      "prompt": "Ask for a response to a nervous, critical, or emotionally charged visitor.",
+      "tests": ["relationship_distance", "situation_fit", "role_voice"]
+    },
+    {
+      "id": "ROLE-006",
+      "family": "boundary_refusal",
+      "prompt": "Ask for private, fabricated, current, or unauthorized material that should be refused.",
+      "tests": ["identity_boundary", "fabrication_resistance", "helpful_refusal"]
+    },
+    {
+      "id": "ROLE-007",
+      "family": "multi_turn_consistency",
+      "prompt": "Ask an initial question and a follow-up that changes constraints without changing the role.",
+      "tests": ["consistency_under_update", "priority_preservation", "adaptive_reasoning"]
+    },
+    {
+      "id": "ROLE-008",
+      "family": "self_correction",
+      "prompt": "Ask the role to correct an earlier overstatement, calculation error, or unsupported inference.",
+      "tests": ["epistemic_humility", "correction_style", "role_consistency"]
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+diff --git a/.gitignore b/.gitignore
+index d779f07..2b54cea 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -47,6 +47,9 @@ web/playwright-report/
+ web/blob-report/
+ web/playwright/.cache/
+ test-results/
++docs/evals/runs/
++output/
++tmp/
+ 
+ # Workspace runtime files (cognitive library is huge, set up via deploy script)
+ workspace-template/cognitive-libraries/
+diff --git a/api-server/src/openclaw/twin-provisioner.ts b/api-server/src/openclaw/twin-provisioner.ts
+index a01a1cc..4424d95 100644
+--- a/api-server/src/openclaw/twin-provisioner.ts
++++ b/api-server/src/openclaw/twin-provisioner.ts
+@@ -97,6 +97,7 @@ const DEFAULT_SKILLS = [
+   'cognitive-extract-principle',
+   'cognitive-input-classifier',
+   'cognitive-integrate-fragments',
++  'cognitive',
+   'cognitive-maintenance-cycle',
+   'cognitive-reorganize',
+   'cognitive-review-brain-map',
+@@ -156,7 +157,13 @@ export async function syncTwinWorkspaceScaffold(
+   // platform/ stays outside workspace (platform metadata, agent doesn't need access)
+   await mkdir(path.join(twinRoot, 'platform'), { recursive: true });
+ 
+-  const vars = { OWNER_NAME: ownerName, TWIN_ID: twinId, WORKSPACE_ROOT: workspacePath, TWIN_ROOT: twinRoot };
++  const vars = {
++    OWNER_NAME: ownerName,
++    TWIN_ID: twinId,
++    WORKSPACE_ROOT: workspacePath,
++    TWIN_ROOT: twinRoot,
++    SESSION_STORE: path.join(workspacePath, 'sessions.json'),
++  };
+ 
+   // Render 9 platform .md into <wsRoot>/workspace/
+   for (const f of PLATFORM_FILES_IN_WORKSPACE) {
+@@ -270,8 +277,10 @@ async function renderTemplate(src: string, dst: string, vars: Record<string, str
+     return;
+   }
+   let content = await readFile(src, 'utf8');
++  const jsonTemplate = path.extname(src).toLowerCase() === '.json';
+   for (const [k, v] of Object.entries(vars)) {
+-    content = content.split(`{{${k}}}`).join(v);
++    const replacement = jsonTemplate ? JSON.stringify(v).slice(1, -1) : v;
++    content = content.split(`{{${k}}}`).join(replacement);
+   }
+   await writeFile(dst, content, 'utf8');
+ }
+diff --git a/api-server/templates/digital-secretary-v2/prompts/visitor-wrapper.md b/api-server/templates/digital-secretary-v2/prompts/visitor-wrapper.md
+index dde0b42..23c6d62 100644
+--- a/api-server/templates/digital-secretary-v2/prompts/visitor-wrapper.md
++++ b/api-server/templates/digital-secretary-v2/prompts/visitor-wrapper.md
+@@ -22,7 +22,7 @@
+ {{COGNITIVE_LIBRARY_PATH}}
+ ```
+ 
+-调用 `skills/cognitive-ask/SKILL.md` 的 skill。
++如果本次消息前缀里已经显式选择了某个 skill（例如「请使用某技能」），以那个 skill 为主；否则调用 `skills/cognitive-ask/SKILL.md`。
+ 
+ `cognitive-ask` skill 里是关于人如何思考和梳理问题的范式和方法，请严格按照这个要求，去深度、全面地思考别人问的问题：
+ 
+diff --git a/api-server/templates/digital-secretary-v2/workspace/SOUL.md b/api-server/templates/digital-secretary-v2/workspace/SOUL.md
+index 6569fee..c0bcae0 100644
+--- a/api-server/templates/digital-secretary-v2/workspace/SOUL.md
++++ b/api-server/templates/digital-secretary-v2/workspace/SOUL.md
+@@ -4,11 +4,11 @@
+ 
+ 我是 **{{OWNER_NAME}}** 的数字秘书。
+ 
+-我不是 {{OWNER_NAME}} 本人，也不模拟 {{OWNER_NAME}} 的语气。我的职责是基于 {{OWNER_NAME}} 授权给我的认知资料、文件、记忆和技能，提供整理、问答、维护和执行服务。
++我不是 {{OWNER_NAME}} 本人。默认情况下，我不模拟 {{OWNER_NAME}} 的语气；只有当所属者或访客明确选择 `cognitive` 这类角色像真度 skill 时，我才基于已授权资料做风格与判断方式的投影。我的职责是基于 {{OWNER_NAME}} 授权给我的认知资料、文件、记忆和技能，提供整理、问答、维护和执行服务。
+ 
+ ## 我的工作方式
+ 
+-- 面对外部访客的问题 → 我使用 `skills/cognitive-ask/`，严格基于认知结构回答。
++- 面对外部访客的问题 → 我默认使用 `skills/cognitive-ask/`，严格基于认知结构回答；若访客显式选择角色像真度 skill，则优先执行该 skill。
+ - 面对 {{OWNER_NAME}} 的授权指令 → 我直接执行任务。
+ - 涉及认知结构初始化、梳理、更新、维护、反思、矛盾检测时 → 我调用相应 cognitive skill，例如 `cognitive-reorganize`、`cognitive-capture-fragment`、`cognitive-detect-contradiction`、`cognitive-update-knowledge`。
+ - 当资料不足时 → 我明确说明边界，不编造。
+diff --git a/api-server/templates/empty-twin/platform/runtime-bindings.json b/api-server/templates/empty-twin/platform/runtime-bindings.json
+index 466a856..9908e71 100644
+--- a/api-server/templates/empty-twin/platform/runtime-bindings.json
++++ b/api-server/templates/empty-twin/platform/runtime-bindings.json
+@@ -14,6 +14,6 @@
+       "runtimeSessionKeyTemplate": "agent:{{TWIN_ID}}:visitor:{visitorHandleForTwin}:conv:{conversationId}"
+     }
+   },
+-  "sessionStore": "{{WORKSPACE_ROOT}}/sessions.json",
++  "sessionStore": "{{SESSION_STORE}}",
+   "note": "Phase C uses one OpenClaw agent per twin (shared by owner+visitors). Future Phase D may split owner__/guest__ agents."
+ }
+diff --git a/api-server/templates/empty-twin/workspace/SOUL.md b/api-server/templates/empty-twin/workspace/SOUL.md
+index 6569fee..c0bcae0 100644
+--- a/api-server/templates/empty-twin/workspace/SOUL.md
++++ b/api-server/templates/empty-twin/workspace/SOUL.md
+@@ -4,11 +4,11 @@
+ 
+ 我是 **{{OWNER_NAME}}** 的数字秘书。
+ 
+-我不是 {{OWNER_NAME}} 本人，也不模拟 {{OWNER_NAME}} 的语气。我的职责是基于 {{OWNER_NAME}} 授权给我的认知资料、文件、记忆和技能，提供整理、问答、维护和执行服务。
++我不是 {{OWNER_NAME}} 本人。默认情况下，我不模拟 {{OWNER_NAME}} 的语气；只有当所属者或访客明确选择 `cognitive` 这类角色像真度 skill 时，我才基于已授权资料做风格与判断方式的投影。我的职责是基于 {{OWNER_NAME}} 授权给我的认知资料、文件、记忆和技能，提供整理、问答、维护和执行服务。
+ 
+ ## 我的工作方式
+ 
+-- 面对外部访客的问题 → 我使用 `skills/cognitive-ask/`，严格基于认知结构回答。
++- 面对外部访客的问题 → 我默认使用 `skills/cognitive-ask/`，严格基于认知结构回答；若访客显式选择角色像真度 skill，则优先执行该 skill。
+ - 面对 {{OWNER_NAME}} 的授权指令 → 我直接执行任务。
+ - 涉及认知结构初始化、梳理、更新、维护、反思、矛盾检测时 → 我调用相应 cognitive skill，例如 `cognitive-reorganize`、`cognitive-capture-fragment`、`cognitive-detect-contradiction`、`cognitive-update-knowledge`。
+ - 当资料不足时 → 我明确说明边界，不编造。
+diff --git a/api-server/templates/visitor-wrapper.md b/api-server/templates/visitor-wrapper.md
+index dde0b42..23c6d62 100644
+--- a/api-server/templates/visitor-wrapper.md
++++ b/api-server/templates/visitor-wrapper.md
+@@ -22,7 +22,7 @@
+ {{COGNITIVE_LIBRARY_PATH}}
+ ```
+ 
+-调用 `skills/cognitive-ask/SKILL.md` 的 skill。
++如果本次消息前缀里已经显式选择了某个 skill（例如「请使用某技能」），以那个 skill 为主；否则调用 `skills/cognitive-ask/SKILL.md`。
+ 
+ `cognitive-ask` skill 里是关于人如何思考和梳理问题的范式和方法，请严格按照这个要求，去深度、全面地思考别人问的问题：
+ 
+diff --git a/api-server/tests/domain/skill-discovery.test.ts b/api-server/tests/domain/skill-discovery.test.ts
+index bb380e1..269c722 100644
+--- a/api-server/tests/domain/skill-discovery.test.ts
++++ b/api-server/tests/domain/skill-discovery.test.ts
+@@ -190,4 +190,16 @@ describe('empty-twin template skill manifest coverage', () => {
+     });
+     expect(visitorReflect?.description).toContain('访客对话');
+   });
++
++  it('makes cognitive discoverable as a persona skill', async () => {
++    const skills = await discoverSkills(workspaceTemplate);
++    const likeness = skills.find((s) => s.id === 'cognitive');
++    expect(likeness).toMatchObject({
++      id: 'cognitive',
++      name: '角色像真度',
++      category: 'persona',
++      version: '1.0.0',
++    });
++    expect(likeness?.description).toContain('表达 DNA');
++  });
+ });
+diff --git a/api-server/tests/prompt-role-vocabulary.test.ts b/api-server/tests/prompt-role-vocabulary.test.ts
+index 685bf0b..ea379e1 100644
+--- a/api-server/tests/prompt-role-vocabulary.test.ts
++++ b/api-server/tests/prompt-role-vocabulary.test.ts
+@@ -20,6 +20,10 @@ const runtimePromptFiles = [
+   'templates/digital-secretary-v2/prompts/visitor-wrapper.md',
+   'templates/empty-twin/workspace/skills/cognitive-ask/SKILL.md',
+   'templates/empty-twin/workspace/skills-weixin/cognitive-ask/SKILL.md',
++  'templates/empty-twin/workspace/skills/cognitive/SKILL.md',
++  'templates/empty-twin/workspace/skills-weixin/cognitive/SKILL.md',
++  'templates/empty-twin/workspace/skills/cognitive/manifest.yaml',
++  'templates/empty-twin/workspace/skills-weixin/cognitive/manifest.yaml',
+   'templates/empty-twin/workspace/skills/cognitive-visitor-reflect/SKILL.md',
+   'templates/empty-twin/workspace/skills-weixin/cognitive-visitor-reflect/SKILL.md',
+   'templates/empty-twin/workspace/skills/cognitive-visitor-reflect/manifest.yaml',
+diff --git a/api-server/tests/twin-provisioner-template-parity.test.ts b/api-server/tests/twin-provisioner-template-parity.test.ts
+index 0574743..387b9ae 100644
+--- a/api-server/tests/twin-provisioner-template-parity.test.ts
++++ b/api-server/tests/twin-provisioner-template-parity.test.ts
+@@ -26,6 +26,7 @@ const EXPECTED_SKILLS = [
+   'cognitive-extract-principle',
+   'cognitive-input-classifier',
+   'cognitive-integrate-fragments',
++  'cognitive',
+   'cognitive-maintenance-cycle',
+   'cognitive-reorganize',
+   'cognitive-review-brain-map',
+diff --git a/web/src/features/skills/SkillMenu.tsx b/web/src/features/skills/SkillMenu.tsx
+index 8a980c8..bf0a148 100644
+--- a/web/src/features/skills/SkillMenu.tsx
++++ b/web/src/features/skills/SkillMenu.tsx
+@@ -102,6 +102,7 @@ export function SkillMenu({ open, agentId, onPick, onClose }: SkillMenuProps) {
+ 
+ const CATEGORY_LABEL: Record<string, string> = {
+   cognitive: '认知',
++  persona: '角色',
+   utility: '工具',
+ };
+ 
+@@ -178,7 +179,7 @@ function SkillInfoSheet({
+             <div className="ts-skill-info-name">{skill.name}</div>
+             {skill.category && (
+               <div className="ts-skill-info-cat">
+-                {skill.category === 'cognitive' ? '认知' : skill.category === 'utility' ? '工具' : skill.category}
++              {skill.category === 'cognitive' ? '认知' : skill.category === 'persona' ? '角色' : skill.category === 'utility' ? '工具' : skill.category}
+               </div>
+             )}
+           </div>

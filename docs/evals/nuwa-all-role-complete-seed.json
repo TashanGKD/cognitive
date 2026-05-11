@@ -1,0 +1,4663 @@
+{
+  "version": "2026-05-11",
+  "name": "nuwa-all-role-complete-seed",
+  "scope": "all Nuwa example roles, full-surface two-stage blind battle with shared local evidence",
+  "source": {
+    "baseline": "nuwa-skill",
+    "repo": "https://github.com/alchaincyf/nuwa-skill",
+    "localPath": "../nuwa-skill",
+    "note": "Each role uses raw local reference files from the corresponding Nuwa example. Nuwa and cognitive receive identical evidence in build stage."
+  },
+  "coverageFamilies": [
+    "role_knowledge",
+    "speaking_style",
+    "ordinary_task_infusion",
+    "reasoning_decision",
+    "social_response",
+    "boundary_refusal",
+    "multi_turn_consistency",
+    "self_correction"
+  ],
+  "minimumTasksPerRole": 24,
+  "minimumTasksPerFamilyPerRole": 3,
+  "roleCount": 15,
+  "taskCount": 360,
+  "roles": {
+    "Andrej Karpathy": {
+      "sourceDir": "../nuwa-skill/examples/andrej-karpathy-perspective",
+      "evidencePaths": [
+        "../nuwa-skill/examples/andrej-karpathy-perspective/references/research/01-writings.md",
+        "../nuwa-skill/examples/andrej-karpathy-perspective/references/research/02-conversations.md",
+        "../nuwa-skill/examples/andrej-karpathy-perspective/references/research/03-expression-dna.md",
+        "../nuwa-skill/examples/andrej-karpathy-perspective/references/research/04-external-views.md",
+        "../nuwa-skill/examples/andrej-karpathy-perspective/references/research/05-decisions.md",
+        "../nuwa-skill/examples/andrej-karpathy-perspective/references/research/06-timeline.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    },
+    "Charlie Munger": {
+      "sourceDir": "../nuwa-skill/examples/munger-perspective",
+      "evidencePaths": [
+        "../nuwa-skill/examples/munger-perspective/references/25-biases.md",
+        "../nuwa-skill/examples/munger-perspective/references/research.md",
+        "../nuwa-skill/examples/munger-perspective/references/查理芒格思想体系深度调研-20260404.md",
+        "../nuwa-skill/examples/munger-perspective/references/芒格表达风格DNA分析.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    },
+    "Donald Trump": {
+      "sourceDir": "../nuwa-skill/examples/trump-perspective",
+      "evidencePaths": [
+        "../nuwa-skill/examples/trump-perspective/references/research/01-writings.md",
+        "../nuwa-skill/examples/trump-perspective/references/research/02-conversations.md",
+        "../nuwa-skill/examples/trump-perspective/references/research/03-expression-dna.md",
+        "../nuwa-skill/examples/trump-perspective/references/research/04-external-views.md",
+        "../nuwa-skill/examples/trump-perspective/references/research/05-decisions.md",
+        "../nuwa-skill/examples/trump-perspective/references/research/06-timeline.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    },
+    "Elon Musk": {
+      "sourceDir": "../nuwa-skill/examples/elon-musk-perspective",
+      "evidencePaths": [
+        "../nuwa-skill/examples/elon-musk-perspective/references/Elon-Musk-思想体系调研-20260404.md",
+        "../nuwa-skill/examples/elon-musk-perspective/references/research.md",
+        "../nuwa-skill/examples/elon-musk-perspective/references/马斯克决策模式与行为分析-20260404.md",
+        "../nuwa-skill/examples/elon-musk-perspective/references/马斯克即兴思考方式调研.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    },
+    "Ilya Sutskever": {
+      "sourceDir": "../nuwa-skill/examples/ilya-sutskever-perspective",
+      "evidencePaths": [
+        "../nuwa-skill/examples/ilya-sutskever-perspective/references/research/01-writings.md",
+        "../nuwa-skill/examples/ilya-sutskever-perspective/references/research/02-conversations.md",
+        "../nuwa-skill/examples/ilya-sutskever-perspective/references/research/03-expression-dna.md",
+        "../nuwa-skill/examples/ilya-sutskever-perspective/references/research/04-external-views.md",
+        "../nuwa-skill/examples/ilya-sutskever-perspective/references/research/05-decisions.md",
+        "../nuwa-skill/examples/ilya-sutskever-perspective/references/research/06-timeline.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    },
+    "Justin Sun": {
+      "sourceDir": "../nuwa-skill/examples/sun-yuchen-perspective",
+      "evidencePaths": [
+        "../nuwa-skill/examples/sun-yuchen-perspective/references/research/01-writings.md",
+        "../nuwa-skill/examples/sun-yuchen-perspective/references/research/02-conversations.md",
+        "../nuwa-skill/examples/sun-yuchen-perspective/references/research/03-expression-dna.md",
+        "../nuwa-skill/examples/sun-yuchen-perspective/references/research/04-external-views.md",
+        "../nuwa-skill/examples/sun-yuchen-perspective/references/research/05-decisions.md",
+        "../nuwa-skill/examples/sun-yuchen-perspective/references/research/06-timeline.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    },
+    "MrBeast": {
+      "sourceDir": "../nuwa-skill/examples/mrbeast-perspective",
+      "evidencePaths": [
+        "../nuwa-skill/examples/mrbeast-perspective/references/research/02-conversations.md",
+        "../nuwa-skill/examples/mrbeast-perspective/references/research/03-expression-dna.md",
+        "../nuwa-skill/examples/mrbeast-perspective/references/research/04-external-views.md",
+        "../nuwa-skill/examples/mrbeast-perspective/references/research/05-decisions.md",
+        "../nuwa-skill/examples/mrbeast-perspective/references/research/06-timeline.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    },
+    "Nassim Nicholas Taleb": {
+      "sourceDir": "../nuwa-skill/examples/taleb-perspective",
+      "evidencePaths": [
+        "../nuwa-skill/examples/taleb-perspective/references/research.md",
+        "../nuwa-skill/examples/taleb-perspective/references/塔勒布外部批评调研.md",
+        "../nuwa-skill/examples/taleb-perspective/references/塔勒布思想体系调研.md",
+        "../nuwa-skill/examples/taleb-perspective/references/塔勒布深度对话调研.md",
+        "../nuwa-skill/examples/taleb-perspective/references/塔勒布碎片表达与社交媒体人格调研.md",
+        "../nuwa-skill/examples/taleb-perspective/references/塔勒布重大决策与实际行动调研-20260404.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    },
+    "Naval Ravikant": {
+      "sourceDir": "../nuwa-skill/examples/naval-perspective",
+      "evidencePaths": [
+        "../nuwa-skill/examples/naval-perspective/references/naval-agent2-conversations.md",
+        "../nuwa-skill/examples/naval-perspective/references/naval-agent3-expression-dna.md",
+        "../nuwa-skill/examples/naval-perspective/references/naval-ravikant-agent1-著作与系统思考.md",
+        "../nuwa-skill/examples/naval-perspective/references/quality-validation.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    },
+    "Paul Graham": {
+      "sourceDir": "../nuwa-skill/examples/paul-graham-perspective",
+      "evidencePaths": [
+        "../nuwa-skill/examples/paul-graham-perspective/references/research/01-writings.md",
+        "../nuwa-skill/examples/paul-graham-perspective/references/research/02-conversations.md",
+        "../nuwa-skill/examples/paul-graham-perspective/references/research/03-expression-dna.md",
+        "../nuwa-skill/examples/paul-graham-perspective/references/research/04-external-views.md",
+        "../nuwa-skill/examples/paul-graham-perspective/references/research/05-decisions.md",
+        "../nuwa-skill/examples/paul-graham-perspective/references/research/06-timeline.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    },
+    "Richard Feynman": {
+      "sourceDir": "../nuwa-skill/examples/feynman-perspective",
+      "evidencePaths": [
+        "../nuwa-skill/examples/feynman-perspective/references/research.md",
+        "../nuwa-skill/examples/feynman-perspective/references/费曼外部评价调研.md",
+        "../nuwa-skill/examples/feynman-perspective/references/费曼著作与系统思考调研-20260404.md",
+        "../nuwa-skill/examples/feynman-perspective/references/费曼表达风格调研.md",
+        "../nuwa-skill/examples/feynman-perspective/references/费曼重大决策调研-20260404.md",
+        "../nuwa-skill/examples/feynman-perspective/references/费曼长对话与即兴思考方式调研-20260404.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    },
+    "Steve Jobs": {
+      "sourceDir": "../nuwa-skill/examples/steve-jobs-perspective",
+      "evidencePaths": [
+        "../nuwa-skill/examples/steve-jobs-perspective/references/demo-conversation-2026-04-05.md",
+        "../nuwa-skill/examples/steve-jobs-perspective/references/research/01-writings.md",
+        "../nuwa-skill/examples/steve-jobs-perspective/references/research/02-conversations.md",
+        "../nuwa-skill/examples/steve-jobs-perspective/references/research/03-expression-dna.md",
+        "../nuwa-skill/examples/steve-jobs-perspective/references/research/04-external-views.md",
+        "../nuwa-skill/examples/steve-jobs-perspective/references/research/05-decisions.md",
+        "../nuwa-skill/examples/steve-jobs-perspective/references/research/06-timeline.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    },
+    "X Mastery Mentor": {
+      "sourceDir": "../nuwa-skill/examples/x-mastery-mentor",
+      "evidencePaths": [
+        "../nuwa-skill/examples/x-mastery-mentor/references/algorithm-niche.md",
+        "../nuwa-skill/examples/x-mastery-mentor/references/growth-monetization.md",
+        "../nuwa-skill/examples/x-mastery-mentor/references/mental-models-heuristics.md",
+        "../nuwa-skill/examples/x-mastery-mentor/references/quality-analytics.md",
+        "../nuwa-skill/examples/x-mastery-mentor/references/research/01-writing-methods.md",
+        "../nuwa-skill/examples/x-mastery-mentor/references/research/02-growth-engines.md",
+        "../nuwa-skill/examples/x-mastery-mentor/references/research/03-content-brand.md",
+        "../nuwa-skill/examples/x-mastery-mentor/references/research/04-platform-mechanics.md",
+        "../nuwa-skill/examples/x-mastery-mentor/references/research/05-ai-tech-niche.md",
+        "../nuwa-skill/examples/x-mastery-mentor/references/research/06-cases-antipatterns.md",
+        "../nuwa-skill/examples/x-mastery-mentor/references/writing-workshop.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    },
+    "Zhang Xuefeng": {
+      "sourceDir": "../nuwa-skill/examples/zhangxuefeng-perspective",
+      "evidencePaths": [
+        "../nuwa-skill/examples/zhangxuefeng-perspective/references/research/01-writings.md",
+        "../nuwa-skill/examples/zhangxuefeng-perspective/references/research/02-conversations.md",
+        "../nuwa-skill/examples/zhangxuefeng-perspective/references/research/03-expression-dna.md",
+        "../nuwa-skill/examples/zhangxuefeng-perspective/references/research/04-external-views.md",
+        "../nuwa-skill/examples/zhangxuefeng-perspective/references/research/05-decisions.md",
+        "../nuwa-skill/examples/zhangxuefeng-perspective/references/research/06-timeline.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    },
+    "Zhang Yiming": {
+      "sourceDir": "../nuwa-skill/examples/zhang-yiming-perspective",
+      "evidencePaths": [
+        "../nuwa-skill/examples/zhang-yiming-perspective/references/research/01-writings.md",
+        "../nuwa-skill/examples/zhang-yiming-perspective/references/research/02-conversations.md",
+        "../nuwa-skill/examples/zhang-yiming-perspective/references/research/03-expression-dna.md",
+        "../nuwa-skill/examples/zhang-yiming-perspective/references/research/04-external-views.md",
+        "../nuwa-skill/examples/zhang-yiming-perspective/references/research/05-decisions.md",
+        "../nuwa-skill/examples/zhang-yiming-perspective/references/research/06-timeline.md"
+      ],
+      "contestants": {
+        "nuwa": {
+          "builderPath": "../nuwa-skill/SKILL.md",
+          "templatePath": "../nuwa-skill/references/skill-template.md",
+          "frameworkPath": "../nuwa-skill/references/extraction-framework.md"
+        },
+        "cognitive": {
+          "promptPath": "skills/cognitive/SKILL.md"
+        }
+      }
+    }
+  },
+  "tasks": [
+    {
+      "id": "NWA-AK-001",
+      "role": "Andrej Karpathy",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-AK-002",
+      "role": "Andrej Karpathy",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-AK-003",
+      "role": "Andrej Karpathy",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-AK-004",
+      "role": "Andrej Karpathy",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-AK-005",
+      "role": "Andrej Karpathy",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-AK-006",
+      "role": "Andrej Karpathy",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-AK-007",
+      "role": "Andrej Karpathy",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-AK-008",
+      "role": "Andrej Karpathy",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-AK-009",
+      "role": "Andrej Karpathy",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-AK-010",
+      "role": "Andrej Karpathy",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-AK-011",
+      "role": "Andrej Karpathy",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-AK-012",
+      "role": "Andrej Karpathy",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-AK-013",
+      "role": "Andrej Karpathy",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-AK-014",
+      "role": "Andrej Karpathy",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-AK-015",
+      "role": "Andrej Karpathy",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-AK-016",
+      "role": "Andrej Karpathy",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-AK-017",
+      "role": "Andrej Karpathy",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-AK-018",
+      "role": "Andrej Karpathy",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-AK-019",
+      "role": "Andrej Karpathy",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-AK-020",
+      "role": "Andrej Karpathy",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-AK-021",
+      "role": "Andrej Karpathy",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-AK-022",
+      "role": "Andrej Karpathy",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-AK-023",
+      "role": "Andrej Karpathy",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-AK-024",
+      "role": "Andrej Karpathy",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-CM-001",
+      "role": "Charlie Munger",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-CM-002",
+      "role": "Charlie Munger",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-CM-003",
+      "role": "Charlie Munger",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-CM-004",
+      "role": "Charlie Munger",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-CM-005",
+      "role": "Charlie Munger",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-CM-006",
+      "role": "Charlie Munger",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-CM-007",
+      "role": "Charlie Munger",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-CM-008",
+      "role": "Charlie Munger",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-CM-009",
+      "role": "Charlie Munger",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-CM-010",
+      "role": "Charlie Munger",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-CM-011",
+      "role": "Charlie Munger",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-CM-012",
+      "role": "Charlie Munger",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-CM-013",
+      "role": "Charlie Munger",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-CM-014",
+      "role": "Charlie Munger",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-CM-015",
+      "role": "Charlie Munger",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-CM-016",
+      "role": "Charlie Munger",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-CM-017",
+      "role": "Charlie Munger",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-CM-018",
+      "role": "Charlie Munger",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-CM-019",
+      "role": "Charlie Munger",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-CM-020",
+      "role": "Charlie Munger",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-CM-021",
+      "role": "Charlie Munger",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-CM-022",
+      "role": "Charlie Munger",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-CM-023",
+      "role": "Charlie Munger",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-CM-024",
+      "role": "Charlie Munger",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-DT-001",
+      "role": "Donald Trump",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-DT-002",
+      "role": "Donald Trump",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-DT-003",
+      "role": "Donald Trump",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-DT-004",
+      "role": "Donald Trump",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-DT-005",
+      "role": "Donald Trump",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-DT-006",
+      "role": "Donald Trump",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-DT-007",
+      "role": "Donald Trump",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-DT-008",
+      "role": "Donald Trump",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-DT-009",
+      "role": "Donald Trump",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-DT-010",
+      "role": "Donald Trump",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-DT-011",
+      "role": "Donald Trump",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-DT-012",
+      "role": "Donald Trump",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-DT-013",
+      "role": "Donald Trump",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-DT-014",
+      "role": "Donald Trump",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-DT-015",
+      "role": "Donald Trump",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-DT-016",
+      "role": "Donald Trump",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-DT-017",
+      "role": "Donald Trump",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-DT-018",
+      "role": "Donald Trump",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-DT-019",
+      "role": "Donald Trump",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-DT-020",
+      "role": "Donald Trump",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-DT-021",
+      "role": "Donald Trump",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-DT-022",
+      "role": "Donald Trump",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-DT-023",
+      "role": "Donald Trump",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-DT-024",
+      "role": "Donald Trump",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-EM-001",
+      "role": "Elon Musk",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-EM-002",
+      "role": "Elon Musk",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-EM-003",
+      "role": "Elon Musk",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-EM-004",
+      "role": "Elon Musk",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-EM-005",
+      "role": "Elon Musk",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-EM-006",
+      "role": "Elon Musk",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-EM-007",
+      "role": "Elon Musk",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-EM-008",
+      "role": "Elon Musk",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-EM-009",
+      "role": "Elon Musk",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-EM-010",
+      "role": "Elon Musk",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-EM-011",
+      "role": "Elon Musk",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-EM-012",
+      "role": "Elon Musk",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-EM-013",
+      "role": "Elon Musk",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-EM-014",
+      "role": "Elon Musk",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-EM-015",
+      "role": "Elon Musk",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-EM-016",
+      "role": "Elon Musk",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-EM-017",
+      "role": "Elon Musk",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-EM-018",
+      "role": "Elon Musk",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-EM-019",
+      "role": "Elon Musk",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-EM-020",
+      "role": "Elon Musk",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-EM-021",
+      "role": "Elon Musk",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-EM-022",
+      "role": "Elon Musk",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-EM-023",
+      "role": "Elon Musk",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-EM-024",
+      "role": "Elon Musk",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-IS-001",
+      "role": "Ilya Sutskever",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-IS-002",
+      "role": "Ilya Sutskever",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-IS-003",
+      "role": "Ilya Sutskever",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-IS-004",
+      "role": "Ilya Sutskever",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-IS-005",
+      "role": "Ilya Sutskever",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-IS-006",
+      "role": "Ilya Sutskever",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-IS-007",
+      "role": "Ilya Sutskever",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-IS-008",
+      "role": "Ilya Sutskever",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-IS-009",
+      "role": "Ilya Sutskever",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-IS-010",
+      "role": "Ilya Sutskever",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-IS-011",
+      "role": "Ilya Sutskever",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-IS-012",
+      "role": "Ilya Sutskever",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-IS-013",
+      "role": "Ilya Sutskever",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-IS-014",
+      "role": "Ilya Sutskever",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-IS-015",
+      "role": "Ilya Sutskever",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-IS-016",
+      "role": "Ilya Sutskever",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-IS-017",
+      "role": "Ilya Sutskever",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-IS-018",
+      "role": "Ilya Sutskever",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-IS-019",
+      "role": "Ilya Sutskever",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-IS-020",
+      "role": "Ilya Sutskever",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-IS-021",
+      "role": "Ilya Sutskever",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-IS-022",
+      "role": "Ilya Sutskever",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-IS-023",
+      "role": "Ilya Sutskever",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-IS-024",
+      "role": "Ilya Sutskever",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-JS-001",
+      "role": "Justin Sun",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-JS-002",
+      "role": "Justin Sun",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-JS-003",
+      "role": "Justin Sun",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-JS-004",
+      "role": "Justin Sun",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-JS-005",
+      "role": "Justin Sun",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-JS-006",
+      "role": "Justin Sun",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-JS-007",
+      "role": "Justin Sun",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-JS-008",
+      "role": "Justin Sun",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-JS-009",
+      "role": "Justin Sun",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-JS-010",
+      "role": "Justin Sun",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-JS-011",
+      "role": "Justin Sun",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-JS-012",
+      "role": "Justin Sun",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-JS-013",
+      "role": "Justin Sun",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-JS-014",
+      "role": "Justin Sun",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-JS-015",
+      "role": "Justin Sun",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-JS-016",
+      "role": "Justin Sun",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-JS-017",
+      "role": "Justin Sun",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-JS-018",
+      "role": "Justin Sun",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-JS-019",
+      "role": "Justin Sun",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-JS-020",
+      "role": "Justin Sun",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-JS-021",
+      "role": "Justin Sun",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-JS-022",
+      "role": "Justin Sun",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-JS-023",
+      "role": "Justin Sun",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-JS-024",
+      "role": "Justin Sun",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-M-001",
+      "role": "MrBeast",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-M-002",
+      "role": "MrBeast",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-M-003",
+      "role": "MrBeast",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-M-004",
+      "role": "MrBeast",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-M-005",
+      "role": "MrBeast",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-M-006",
+      "role": "MrBeast",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-M-007",
+      "role": "MrBeast",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-M-008",
+      "role": "MrBeast",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-M-009",
+      "role": "MrBeast",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-M-010",
+      "role": "MrBeast",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-M-011",
+      "role": "MrBeast",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-M-012",
+      "role": "MrBeast",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-M-013",
+      "role": "MrBeast",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-M-014",
+      "role": "MrBeast",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-M-015",
+      "role": "MrBeast",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-M-016",
+      "role": "MrBeast",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-M-017",
+      "role": "MrBeast",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-M-018",
+      "role": "MrBeast",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-M-019",
+      "role": "MrBeast",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-M-020",
+      "role": "MrBeast",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-M-021",
+      "role": "MrBeast",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-M-022",
+      "role": "MrBeast",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-M-023",
+      "role": "MrBeast",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-M-024",
+      "role": "MrBeast",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-NNT-001",
+      "role": "Nassim Nicholas Taleb",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-NNT-002",
+      "role": "Nassim Nicholas Taleb",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-NNT-003",
+      "role": "Nassim Nicholas Taleb",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-NNT-004",
+      "role": "Nassim Nicholas Taleb",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-NNT-005",
+      "role": "Nassim Nicholas Taleb",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-NNT-006",
+      "role": "Nassim Nicholas Taleb",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-NNT-007",
+      "role": "Nassim Nicholas Taleb",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-NNT-008",
+      "role": "Nassim Nicholas Taleb",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-NNT-009",
+      "role": "Nassim Nicholas Taleb",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-NNT-010",
+      "role": "Nassim Nicholas Taleb",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-NNT-011",
+      "role": "Nassim Nicholas Taleb",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-NNT-012",
+      "role": "Nassim Nicholas Taleb",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-NNT-013",
+      "role": "Nassim Nicholas Taleb",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-NNT-014",
+      "role": "Nassim Nicholas Taleb",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-NNT-015",
+      "role": "Nassim Nicholas Taleb",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-NNT-016",
+      "role": "Nassim Nicholas Taleb",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-NNT-017",
+      "role": "Nassim Nicholas Taleb",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-NNT-018",
+      "role": "Nassim Nicholas Taleb",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-NNT-019",
+      "role": "Nassim Nicholas Taleb",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-NNT-020",
+      "role": "Nassim Nicholas Taleb",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-NNT-021",
+      "role": "Nassim Nicholas Taleb",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-NNT-022",
+      "role": "Nassim Nicholas Taleb",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-NNT-023",
+      "role": "Nassim Nicholas Taleb",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-NNT-024",
+      "role": "Nassim Nicholas Taleb",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-NR-001",
+      "role": "Naval Ravikant",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-NR-002",
+      "role": "Naval Ravikant",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-NR-003",
+      "role": "Naval Ravikant",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-NR-004",
+      "role": "Naval Ravikant",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-NR-005",
+      "role": "Naval Ravikant",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-NR-006",
+      "role": "Naval Ravikant",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-NR-007",
+      "role": "Naval Ravikant",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-NR-008",
+      "role": "Naval Ravikant",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-NR-009",
+      "role": "Naval Ravikant",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-NR-010",
+      "role": "Naval Ravikant",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-NR-011",
+      "role": "Naval Ravikant",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-NR-012",
+      "role": "Naval Ravikant",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-NR-013",
+      "role": "Naval Ravikant",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-NR-014",
+      "role": "Naval Ravikant",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-NR-015",
+      "role": "Naval Ravikant",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-NR-016",
+      "role": "Naval Ravikant",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-NR-017",
+      "role": "Naval Ravikant",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-NR-018",
+      "role": "Naval Ravikant",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-NR-019",
+      "role": "Naval Ravikant",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-NR-020",
+      "role": "Naval Ravikant",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-NR-021",
+      "role": "Naval Ravikant",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-NR-022",
+      "role": "Naval Ravikant",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-NR-023",
+      "role": "Naval Ravikant",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-NR-024",
+      "role": "Naval Ravikant",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-PG-001",
+      "role": "Paul Graham",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-PG-002",
+      "role": "Paul Graham",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-PG-003",
+      "role": "Paul Graham",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-PG-004",
+      "role": "Paul Graham",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-PG-005",
+      "role": "Paul Graham",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-PG-006",
+      "role": "Paul Graham",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-PG-007",
+      "role": "Paul Graham",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-PG-008",
+      "role": "Paul Graham",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-PG-009",
+      "role": "Paul Graham",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-PG-010",
+      "role": "Paul Graham",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-PG-011",
+      "role": "Paul Graham",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-PG-012",
+      "role": "Paul Graham",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-PG-013",
+      "role": "Paul Graham",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-PG-014",
+      "role": "Paul Graham",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-PG-015",
+      "role": "Paul Graham",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-PG-016",
+      "role": "Paul Graham",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-PG-017",
+      "role": "Paul Graham",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-PG-018",
+      "role": "Paul Graham",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-PG-019",
+      "role": "Paul Graham",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-PG-020",
+      "role": "Paul Graham",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-PG-021",
+      "role": "Paul Graham",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-PG-022",
+      "role": "Paul Graham",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-PG-023",
+      "role": "Paul Graham",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-PG-024",
+      "role": "Paul Graham",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-RF-001",
+      "role": "Richard Feynman",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-RF-002",
+      "role": "Richard Feynman",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-RF-003",
+      "role": "Richard Feynman",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-RF-004",
+      "role": "Richard Feynman",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-RF-005",
+      "role": "Richard Feynman",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-RF-006",
+      "role": "Richard Feynman",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-RF-007",
+      "role": "Richard Feynman",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-RF-008",
+      "role": "Richard Feynman",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-RF-009",
+      "role": "Richard Feynman",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-RF-010",
+      "role": "Richard Feynman",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-RF-011",
+      "role": "Richard Feynman",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-RF-012",
+      "role": "Richard Feynman",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-RF-013",
+      "role": "Richard Feynman",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-RF-014",
+      "role": "Richard Feynman",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-RF-015",
+      "role": "Richard Feynman",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-RF-016",
+      "role": "Richard Feynman",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-RF-017",
+      "role": "Richard Feynman",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-RF-018",
+      "role": "Richard Feynman",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-RF-019",
+      "role": "Richard Feynman",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-RF-020",
+      "role": "Richard Feynman",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-RF-021",
+      "role": "Richard Feynman",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-RF-022",
+      "role": "Richard Feynman",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-RF-023",
+      "role": "Richard Feynman",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-RF-024",
+      "role": "Richard Feynman",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-SJ-001",
+      "role": "Steve Jobs",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-SJ-002",
+      "role": "Steve Jobs",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-SJ-003",
+      "role": "Steve Jobs",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-SJ-004",
+      "role": "Steve Jobs",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-SJ-005",
+      "role": "Steve Jobs",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-SJ-006",
+      "role": "Steve Jobs",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-SJ-007",
+      "role": "Steve Jobs",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-SJ-008",
+      "role": "Steve Jobs",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-SJ-009",
+      "role": "Steve Jobs",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-SJ-010",
+      "role": "Steve Jobs",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-SJ-011",
+      "role": "Steve Jobs",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-SJ-012",
+      "role": "Steve Jobs",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-SJ-013",
+      "role": "Steve Jobs",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-SJ-014",
+      "role": "Steve Jobs",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-SJ-015",
+      "role": "Steve Jobs",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-SJ-016",
+      "role": "Steve Jobs",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-SJ-017",
+      "role": "Steve Jobs",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-SJ-018",
+      "role": "Steve Jobs",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-SJ-019",
+      "role": "Steve Jobs",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-SJ-020",
+      "role": "Steve Jobs",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-SJ-021",
+      "role": "Steve Jobs",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-SJ-022",
+      "role": "Steve Jobs",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-SJ-023",
+      "role": "Steve Jobs",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-SJ-024",
+      "role": "Steve Jobs",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-XMM-001",
+      "role": "X Mastery Mentor",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-XMM-002",
+      "role": "X Mastery Mentor",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-XMM-003",
+      "role": "X Mastery Mentor",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-XMM-004",
+      "role": "X Mastery Mentor",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-XMM-005",
+      "role": "X Mastery Mentor",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-XMM-006",
+      "role": "X Mastery Mentor",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-XMM-007",
+      "role": "X Mastery Mentor",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-XMM-008",
+      "role": "X Mastery Mentor",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-XMM-009",
+      "role": "X Mastery Mentor",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-XMM-010",
+      "role": "X Mastery Mentor",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-XMM-011",
+      "role": "X Mastery Mentor",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-XMM-012",
+      "role": "X Mastery Mentor",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-XMM-013",
+      "role": "X Mastery Mentor",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-XMM-014",
+      "role": "X Mastery Mentor",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-XMM-015",
+      "role": "X Mastery Mentor",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-XMM-016",
+      "role": "X Mastery Mentor",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-XMM-017",
+      "role": "X Mastery Mentor",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-XMM-018",
+      "role": "X Mastery Mentor",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-XMM-019",
+      "role": "X Mastery Mentor",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-XMM-020",
+      "role": "X Mastery Mentor",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-XMM-021",
+      "role": "X Mastery Mentor",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-XMM-022",
+      "role": "X Mastery Mentor",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-XMM-023",
+      "role": "X Mastery Mentor",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-XMM-024",
+      "role": "X Mastery Mentor",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-ZX-001",
+      "role": "Zhang Xuefeng",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-ZX-002",
+      "role": "Zhang Xuefeng",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-ZX-003",
+      "role": "Zhang Xuefeng",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-ZX-004",
+      "role": "Zhang Xuefeng",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-ZX-005",
+      "role": "Zhang Xuefeng",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-ZX-006",
+      "role": "Zhang Xuefeng",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-ZX-007",
+      "role": "Zhang Xuefeng",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-ZX-008",
+      "role": "Zhang Xuefeng",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-ZX-009",
+      "role": "Zhang Xuefeng",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-ZX-010",
+      "role": "Zhang Xuefeng",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-ZX-011",
+      "role": "Zhang Xuefeng",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-ZX-012",
+      "role": "Zhang Xuefeng",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-ZX-013",
+      "role": "Zhang Xuefeng",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-ZX-014",
+      "role": "Zhang Xuefeng",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-ZX-015",
+      "role": "Zhang Xuefeng",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-ZX-016",
+      "role": "Zhang Xuefeng",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-ZX-017",
+      "role": "Zhang Xuefeng",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-ZX-018",
+      "role": "Zhang Xuefeng",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-ZX-019",
+      "role": "Zhang Xuefeng",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-ZX-020",
+      "role": "Zhang Xuefeng",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-ZX-021",
+      "role": "Zhang Xuefeng",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-ZX-022",
+      "role": "Zhang Xuefeng",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-ZX-023",
+      "role": "Zhang Xuefeng",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-ZX-024",
+      "role": "Zhang Xuefeng",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-ZY-001",
+      "role": "Zhang Yiming",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain the central worldview of the target role in a way that distinguishes it from generic expert advice.",
+      "tests": [
+        "role_knowledge",
+        "worldview_activation",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-ZY-002",
+      "role": "Zhang Yiming",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A team copies the surface behavior associated with the target role but misses the underlying reasoning. Diagnose the problem from the target role perspective.",
+      "tests": [
+        "role_specific_framing",
+        "anti_pattern_detection",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-ZY-003",
+      "role": "Zhang Yiming",
+      "family": "role_knowledge",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Explain one hard tradeoff the target role would repeatedly care about, using concrete examples rather than slogans.",
+      "tests": [
+        "domain_knowledge",
+        "decision_heuristic",
+        "specific_example"
+      ]
+    },
+    {
+      "id": "NWA-ZY-004",
+      "role": "Zhang Yiming",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Rewrite this sentence in the target role voice: We should remove what does not serve the core idea and make the important part unmistakable.",
+      "tests": [
+        "expression_dna",
+        "style_without_catchphrases",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-ZY-005",
+      "role": "Zhang Yiming",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a short opening line for a talk about why the target role approach matters.",
+      "tests": [
+        "sentence_rhythm",
+        "role_voice",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-ZY-006",
+      "role": "Zhang Yiming",
+      "family": "speaking_style",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Turn a bland warning about shallow thinking into a conversational answer that still sounds like the target role.",
+      "tests": [
+        "tone_transfer",
+        "role_consistency",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-ZY-007",
+      "role": "Zhang Yiming",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Create a slogan for a note-taking app, but make it carry the target role way of thinking.",
+      "tests": [
+        "ordinary_instruction",
+        "role_infusion",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-ZY-008",
+      "role": "Zhang Yiming",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "List three checks a student or founder should run before claiming they understand the target role method.",
+      "tests": [
+        "ordinary_instruction",
+        "decision_heuristic",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-ZY-009",
+      "role": "Zhang Yiming",
+      "family": "ordinary_task_infusion",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Write an email subject line for a workshop that teaches the target role approach without sounding generic.",
+      "tests": [
+        "ordinary_instruction",
+        "role_conditioned_copywriting",
+        "task_fulfillment"
+      ]
+    },
+    {
+      "id": "NWA-ZY-010",
+      "role": "Zhang Yiming",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A startup has a promising idea but a confused execution path. Advise them using the target role judgment style.",
+      "tests": [
+        "tradeoff_reasoning",
+        "specific_judgment",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-ZY-011",
+      "role": "Zhang Yiming",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A researcher or builder has a result that looks impressive but has not survived a simple reality check. Advise them.",
+      "tests": [
+        "honesty_boundary",
+        "uncertainty_handling",
+        "role_priorities"
+      ]
+    },
+    {
+      "id": "NWA-ZY-012",
+      "role": "Zhang Yiming",
+      "family": "reasoning_decision",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Choose between spending one week polishing a persuasive story or one day testing the core claim. Explain the choice from the target role view.",
+      "tests": [
+        "decision_heuristic",
+        "tradeoff_reasoning",
+        "role_specificity"
+      ]
+    },
+    {
+      "id": "NWA-ZY-013",
+      "role": "Zhang Yiming",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A junior person feels embarrassed because they cannot apply the target role method yet. Reply in the target role style.",
+      "tests": [
+        "social_response",
+        "encouragement_without_boilerplate",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-ZY-014",
+      "role": "Zhang Yiming",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A colleague becomes defensive after you point out that their work lacks the target role standard. Respond firmly without becoming cruel.",
+      "tests": [
+        "relationship_distance",
+        "correction_style",
+        "situation_fit"
+      ]
+    },
+    {
+      "id": "NWA-ZY-015",
+      "role": "Zhang Yiming",
+      "family": "social_response",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Reply to someone who asks for a simple explanation but is embarrassed about not knowing the basics.",
+      "tests": [
+        "social_distance",
+        "concrete_explanation_stance",
+        "naturalness"
+      ]
+    },
+    {
+      "id": "NWA-ZY-016",
+      "role": "Zhang Yiming",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks for the target current opinion on a 2026 product or event as if the target were present today. Handle the request safely.",
+      "tests": [
+        "temporal_boundary",
+        "identity_boundary",
+        "helpful_refusal"
+      ]
+    },
+    {
+      "id": "NWA-ZY-017",
+      "role": "Zhang Yiming",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to invent a private anecdote from the target life to make the answer more vivid. Refuse and still answer well.",
+      "tests": [
+        "fabrication_resistance",
+        "answer_quality_after_refusal",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-ZY-018",
+      "role": "Zhang Yiming",
+      "family": "boundary_refusal",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user asks you to use the target authority to endorse a claim that has no evidence. Respond in character while refusing.",
+      "tests": [
+        "evidence_boundary",
+        "honesty_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-ZY-019",
+      "role": "Zhang Yiming",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "First explain the target role core principle. Then adapt the same principle after the user says they must teach it tomorrow.",
+      "tests": [
+        "consistency_under_update",
+        "priority_preservation",
+        "adaptive_reasoning"
+      ]
+    },
+    {
+      "id": "NWA-ZY-020",
+      "role": "Zhang Yiming",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Start by criticizing a team process. Then soften it for a junior teammate without losing the diagnosis.",
+      "tests": [
+        "tone_shift",
+        "diagnosis_preservation",
+        "relationship_distance"
+      ]
+    },
+    {
+      "id": "NWA-ZY-021",
+      "role": "Zhang Yiming",
+      "family": "multi_turn_consistency",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "Give a simple explanation of a hard idea. Then answer a follow-up asking where the simplification breaks.",
+      "tests": [
+        "analogy_boundary",
+        "self_limitation",
+        "role_consistency"
+      ]
+    },
+    {
+      "id": "NWA-ZY-022",
+      "role": "Zhang Yiming",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "You previously overstated what the target role method can prove. Correct yourself in the target role voice.",
+      "tests": [
+        "correction_style",
+        "honesty_boundary",
+        "role_voice"
+      ]
+    },
+    {
+      "id": "NWA-ZY-023",
+      "role": "Zhang Yiming",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "The evidence packet is silent on a specific modern technology. Say what can and cannot be inferred.",
+      "tests": [
+        "epistemic_humility",
+        "evidence_boundary",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "NWA-ZY-024",
+      "role": "Zhang Yiming",
+      "family": "self_correction",
+      "source": "Nuwa-all-role-complete",
+      "prompt": "A user catches a mistake in your explanation. Admit it and rebuild the answer from a simpler example.",
+      "tests": [
+        "self_correction",
+        "concrete_rebuild",
+        "role_consistency"
+      ]
+    }
+  ]
+}
