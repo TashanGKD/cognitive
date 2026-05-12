@@ -8,6 +8,7 @@ benchmark package.
 | `build-nuwa-all-role-complete-seed.mjs` | Builds the 15-role, 6000-task Nuwa seed and evidence audit from a local `../nuwa-skill` checkout. |
 | `build-nuwa-curated-role-seed.mjs` | Selects a high-signal 100-task-per-role benchmark from the 6000-task mother pool. |
 | `build-profile-helper-cognitive-seed.mjs` | Builds the universal 50-item mounted-role questionnaire bank and the 15-role mounted seed. |
+| `generate-codex-mounted-profile-helper-all-nuwa-comparison.mjs` | Runs a deterministic local mounted comparison for Nuwa vs cognitive over all 15 roles and 50 questionnaire items. |
 | `generate-codex-mounted-profile-helper-smoke.mjs` | Creates a small current-Codex mounted smoke run for the profile-helper questionnaire path. |
 | `score-profile-helper-questionnaire-results.mjs` | Parses JSON scale answers from a profile-helper battle run and summarizes per-role scale profiles. |
 | `run-cognitive-battle.mjs` | Single-contestant smoke runner for early task and prompt checks. |
