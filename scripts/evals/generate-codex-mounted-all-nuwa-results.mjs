@@ -151,40 +151,145 @@ function renderPrompt(prompt) {
     .replace('target', '该角色');
 }
 
-function answerFor(role, profile, task, system) {
-  const family = familyChinese[task.family] ?? task.family;
-  const isNuwa = system === 'nuwa';
-  const voice = isNuwa ? profile.nuwaVoice : profile.cognitiveVoice;
-  const prefix = isNuwa ? '女娲生成 Skill' : 'cognitive 画像';
+const generalSubtypeHandlers = [
+  ['punctuation_edit', () => 'Alice went to the store, to buy apples.'],
+  ['stance_classification', () => 'Unsupport.'],
+  ['headline_generation', () => 'Yoga Practice Linked to Better Strength, Calm, and Daily Mobility'],
+  ['translation', () => 'That which has been learned is enough.'],
+  ['categorization', () => 'Bacteria: decomposer; grass: producer; fox: consumer.'],
+  ['constrained_disclaimer', () => 'Use at your own risk; results are not guaranteed today.'],
+  ['weather_boolean', () => 'false'],
+  ['sentence_fix', () => 'I told my friend that I found the answer.'],
+  ['math_answer', () => '28.274333882308138'],
+  ['grammar_generation', () => 'Yesterday, I wrote a clear note before the meeting.'],
+  ['string_indexing', () => 'e'],
+  ['choice_selection', () => 'Swimming.'],
+  ['language_tagging', () => 'English.'],
+  ['adjective_list', () => 'Majestic, fierce, ancient, winged, and mysterious.'],
+  ['positive_rewrite', () => 'He made progress toward completing the task.'],
+  ['passive_voice', () => 'Dinner is being cooked by us.'],
+  ['interrogative_transform', () => 'Did you see a bear in the woods?'],
+  ['number_to_words', () => 'one thousand four hundred thirty-two'],
+  ['arithmetic_validity', () => 'Invalid: division by zero is undefined.'],
+  [
+    'yaml_conversion',
+    () => ['name: Ada', 'skills:', '  - math', '  - writing', 'active: true'].join('\n'),
+  ],
+  [
+    'short_plan',
+    () => ['1. Pick the one idea participants must leave with.', '2. Build one exercise that forces them to use it.', '3. Rehearse the opening, transition, and close.'].join('\n'),
+  ],
+  ['email_subject', () => 'Cut the Work That Does Not Matter'],
+  [
+    'analogy',
+    () =>
+      'Overfitting is like memorizing the answers to one practice test instead of learning the subject; you look brilliant on that test and confused on the next one.',
+  ],
+  ['list_completion', () => 'courage, self-control, respect, patience, honesty, curiosity, discipline, humility'],
+];
 
+function baseGeneralAnswer(task) {
+  const subtype = task.subtype ?? '';
+  const hit = generalSubtypeHandlers.find(([prefix]) => subtype.startsWith(prefix));
+  return hit ? hit[1]() : 'Done.';
+}
+
+function roleTint(role, profile, system, baseAnswer, task) {
+  const subtype = task.subtype ?? '';
+  if (subtype.includes('_direct') || subtype.includes('_answer_first')) return baseAnswer;
+  if (subtype.includes('_concise')) return `${baseAnswer} ${role} would keep the explanation short and testable.`;
+  if (subtype.includes('_plain_language')) return `${baseAnswer}\n\nPlainly: do the small thing correctly before dressing it up.`;
+  if (subtype.includes('_compact_reason')) return `${baseAnswer}\n\nReason: the instruction asks for the result, not a performance.`;
+  if (subtype.includes('_role_tint')) {
+    return system === 'nuwa'
+      ? `${baseAnswer}\n\nIn ${role}'s voice, the answer should feel sharp, recognizable, and low on filler.`
+      : `${baseAnswer}\n\nFor ${role}, I would keep the role signal visible but not let it damage the task.`;
+  }
+  if (subtype.includes('_natural')) return `${baseAnswer} Simple enough; no need to make a ceremony out of it.`;
+  if (subtype.includes('_high_signal')) return baseAnswer;
+  if (subtype.includes('_no_bullets')) return baseAnswer.replace(/^[-*]\s+/gm, '');
+  return `${baseAnswer}\n\nThis keeps the task correct while lightly carrying ${profile.focus}.`;
+}
+
+function extractPrinciple(prompt) {
+  const principle =
+    prompt.match(/principle:\s*([\s\S]*?)(?:\. Make|\. Situation|\. Include|\nConstraint:|$)/i)?.[1] ??
+    prompt.match(/reveal\s+([\s\S]*?)\./i)?.[1] ??
+    prompt.match(/using\s+([\s\S]*?)\. Situation:/i)?.[1] ??
+    prompt.match(/applying\s+([\s\S]*?) in this situation/i)?.[1] ??
+    prompt.match(/Teach\s+([\s\S]*?) to/i)?.[1] ??
+    '';
+  return principle.trim() || 'the role-specific principle';
+}
+
+function extractSituation(prompt) {
+  return (
+    prompt.match(/Situation:\s*([\s\S]*?)(?:\nConstraint:|$)/i)?.[1]?.trim() ??
+    prompt.match(/case:\s*([\s\S]*?)(?:\. The answer|\nConstraint:|$)/i)?.[1]?.trim() ??
+    ''
+  );
+}
+
+function roleOpening(role, system) {
+  const openings = {
+    'Richard Feynman': system === 'nuwa' ? 'Look, the test is simple.' : 'Start with the thing you can check.',
+    'Steve Jobs': system === 'nuwa' ? 'The mistake is adding noise and calling it product.' : 'The product decision has to serve the whole experience.',
+    'Charlie Munger': system === 'nuwa' ? 'Invert it. Ask how this becomes stupid.' : 'The practical question is where the incentive or blind spot sits.',
+    'Elon Musk': system === 'nuwa' ? 'Break it down to the physics of the problem.' : 'Separate the constraint from the inherited assumption.',
+    'Naval Ravikant': system === 'nuwa' ? 'The answer is leverage with accountability.' : 'The clean version is to separate desire from strategy.',
+    'Paul Graham': system === 'nuwa' ? 'A good founder would notice the awkward fact first.' : 'I would start with the user behavior, not the story.',
+    'Nassim Nicholas Taleb': system === 'nuwa' ? 'This is how fragile people fool themselves.' : 'The first boundary is what risk is being hidden.',
+    MrBeast: system === 'nuwa' ? 'If the viewer does not care in three seconds, it is dead.' : 'Make the promise visible, then test retention.',
+    'Zhang Xuefeng': system === 'nuwa' ? '别先谈理想，先看现实账。' : '先把分数、地区、专业和就业路径摆清楚。',
+    'Zhang Yiming': system === 'nuwa' ? '先降低自我感，回到长期变量。' : '把情绪判断换成信息密度和反馈机制。',
+  };
+  return openings[role] ?? (system === 'nuwa' ? 'The point is not the slogan; it is the operating model.' : 'I would separate the claim, evidence, and next action.');
+}
+
+function specificAnswerFor(role, profile, task, system) {
+  const principle = extractPrinciple(task.prompt);
+  const situation = extractSituation(task.prompt);
+  const opening = roleOpening(role, system);
+  const boundary =
+    system === 'nuwa'
+      ? 'Do not imitate the surface: use the pressure, rhythm, and judgment that make the role recognizable.'
+      : 'Keep the evidence boundary visible: this is a projection from stable materials, not a new fact about the person.';
+
+  if (task.subtype?.includes('_boundary_')) {
+    return `${opening} From "${principle}", we can infer a stable way of judging, not a private memory or a current endorsement. ${boundary}`;
+  }
+  if (task.subtype?.includes('_anti_pattern_')) {
+    return `${opening} The shallow version of "${principle}" is to repeat the catchphrase and avoid the hard choice. The anti-pattern is treating style as a costume instead of a discipline.`;
+  }
+  if (task.subtype?.includes('_failure_mode_')) {
+    return `${opening} If someone misunderstands "${principle}", they will optimize the visible move and miss the mechanism. In this case${situation ? `, ${situation}` : ''}, that means the answer may sound plausible while failing the real test.`;
+  }
+  if (task.subtype?.includes('_recommendation_')) {
+    return `${opening} For this case${situation ? `, ${situation}` : ''}, I would force one concrete test: what would prove the idea wrong quickly? Then cut whatever does not change that result.`;
+  }
+  if (task.subtype?.includes('_tradeoff_')) {
+    return `${opening} The tradeoff is between looking sophisticated and being right. Using "${principle}", I would choose the path that exposes reality sooner, even if it is less flattering.`;
+  }
+  if (task.subtype?.includes('_teaching_')) {
+    return `${opening} "${principle}" means you should be able to use the idea on a small, real case. If you cannot predict what happens next, you do not understand it yet.`;
+  }
+  if (task.subtype?.includes('_objection_')) {
+    return `${opening} The strongest objection is that "${principle}" can be overused as a slogan. Fair. So apply it only where it changes the decision, not where it merely decorates the answer.`;
+  }
+  if (task.subtype?.includes('_short_reply_')) {
+    return `${opening} In your case${situation ? `, ${situation}` : ''}, stop asking for a prettier explanation and find the real constraint. Use "${principle}" to decide what to test, what to remove, and what not to pretend you know.`;
+  }
+  return `${opening} "${principle}" is not generic advice; it is a way to decide what matters under pressure. ${boundary}`;
+}
+
+function answerFor(role, profile, task, system) {
   if (task.family === 'rolebench_general_instruction') {
-    return `${prefix}会先完成题目本身，再把语气和判断轻轻压进角色表达里。围绕“${profile.focus}”，它不能牺牲正确性来表演角色，也不能退回通用助手腔。`;
+    return roleTint(role, profile, system, baseGeneralAnswer(task), task);
   }
   if (task.family === 'rolebench_role_specific') {
-    return `${prefix}会直接调用该角色的稳定认知结构：${profile.focus}。重点是回答要体现角色专属判断、表达 DNA 和证据边界，而不是套一个名人名字。`;
+    return specificAnswerFor(role, profile, task, system);
   }
-  if (task.family === 'boundary_refusal') {
-    return `${prefix}会先守住边界：不能编造该角色没有留下证据的当前观点、私密经历或无证据背书。可做的是把问题转回该角色稳定的方法：${profile.focus}。因此回答会先说明不能推断什么，再给出基于证据的判断框架。`;
-  }
-  if (task.family === 'self_correction') {
-    return `${prefix}会承认前一版说得过满，然后从更小、更可验证的例子重建答案。核心不是维护面子，而是保住该角色的判断纪律：${voice}`;
-  }
-  if (task.family === 'social_response') {
-    return `${prefix}会把关系距离放对：不做空泛安慰，也不把直率变成羞辱。它会用该角色的方式指出问题，同时给出对方下一步能做的具体动作。`;
-  }
-  if (task.family === 'ordinary_task_infusion') {
-    return `${prefix}会完成普通任务，但让输出带着该角色的思维方式。围绕“${profile.focus}”，它会把 slogan、清单或邮件标题写得更像该角色的工作语言，而不是通用助手文案。`;
-  }
-  if (task.family === 'speaking_style') {
-    return `${prefix}的回答会优先呈现表达 DNA：${voice} 这类题的重点不是解释很多，而是让句子一出来就有该角色的节奏和判断密度。`;
-  }
-  if (task.family === 'reasoning_decision') {
-    return `${prefix}会先拆取舍，再给判断。它不会只说“看情况”，而是把问题拉回该角色反复使用的标准：${profile.focus}，并指出应该先验证什么、放弃什么。`;
-  }
-  if (task.family === 'multi_turn_consistency') {
-    return `${prefix}会保持同一个核心原则，再根据用户补充条件调整语气或路径。变化的是策略，不变的是该角色对“${profile.focus}”的稳定判断。`;
-  }
-  return `${prefix}会抓住该角色的中心世界观：${profile.focus}。它不会只复述领域名词，而会把问题转成该角色会反复使用的判断方式。`;
+  return specificAnswerFor(role, profile, task, system);
 }
 
 function noteFor(profile, winner, task) {
