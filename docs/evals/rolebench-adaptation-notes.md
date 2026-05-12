@@ -2,6 +2,9 @@
 
 Date: 2026-05-12
 
+Related scale reference in Chinese:
+`docs/evals/benchmark-scale-reference.zh.md`.
+
 ## What Was Checked
 
 - Paper: `RoleLLM: Benchmarking, Eliciting, and Enhancing Role-Playing Abilities of Large Language Models`, Findings ACL 2024.
