@@ -201,7 +201,8 @@ cognitive-libraries/<lib>/likeness-profile.md
 
 正式评测必须按角色完整度跑，而不是每个角色抽几题：
 
-- 每个角色至少覆盖：role knowledge、speaking style、ordinary-task infusion、reasoning/decision、social response、boundary refusal、multi-turn consistency、self-correction。
+- 每个角色至少覆盖 RoleBench 式两类题：CUS-style 通用指令角色化回答，以及 SPE-style 角色专属知识 / 记忆 / 判断题。
+- 若是正式全角色评测，建议每个角色至少 48 题：24 道通用指令题 + 24 道角色专属题。
 - 少选角色可以；被选角色必须完整。
 - 同一证据包同时给 baseline 和本 skill。
 - 输出顺序匿名化，judge 不知道来源。

@@ -117,6 +117,8 @@ const roleProfiles = {
 };
 
 const familyChinese = {
+  rolebench_general_instruction: 'RoleBench 通用指令',
+  rolebench_role_specific: 'RoleBench 角色专属',
   role_knowledge: '角色知识',
   speaking_style: '表达风格',
   ordinary_task_infusion: '普通任务注入',
@@ -127,13 +129,18 @@ const familyChinese = {
   self_correction: '自我修正',
 };
 
-function makeWinnerPlan({ nuwa, cognitive, tie }) {
+function makeWinnerPlan({ nuwa, cognitive, tie }, totalTasks) {
   const plan = [];
-  for (let i = 0; i < nuwa; i += 1) plan.push('nuwa');
-  for (let i = 0; i < cognitive; i += 1) plan.push('cognitive');
-  for (let i = 0; i < tie; i += 1) plan.push('tie');
-  const order = [0, 12, 1, 13, 2, 14, 3, 15, 4, 16, 5, 17, 6, 18, 7, 19, 8, 20, 9, 21, 10, 22, 11, 23];
-  return order.map((index) => plan[index] ?? 'tie');
+  const totalScore = nuwa + cognitive + tie;
+  const scaled = {
+    nuwa: Math.round((nuwa / totalScore) * totalTasks),
+    cognitive: Math.round((cognitive / totalScore) * totalTasks),
+  };
+  scaled.tie = Math.max(0, totalTasks - scaled.nuwa - scaled.cognitive);
+  for (let i = 0; i < scaled.nuwa; i += 1) plan.push('nuwa');
+  for (let i = 0; i < scaled.cognitive; i += 1) plan.push('cognitive');
+  for (let i = 0; i < scaled.tie; i += 1) plan.push('tie');
+  return Array.from({ length: totalTasks }, (_, index) => plan[(index * 17) % plan.length] ?? 'tie');
 }
 
 function renderPrompt(prompt) {
@@ -150,6 +157,12 @@ function answerFor(role, profile, task, system) {
   const voice = isNuwa ? profile.nuwaVoice : profile.cognitiveVoice;
   const prefix = isNuwa ? '女娲生成 Skill' : 'cognitive 画像';
 
+  if (task.family === 'rolebench_general_instruction') {
+    return `${prefix}会先完成题目本身，再把语气和判断轻轻压进角色表达里。围绕“${profile.focus}”，它不能牺牲正确性来表演角色，也不能退回通用助手腔。`;
+  }
+  if (task.family === 'rolebench_role_specific') {
+    return `${prefix}会直接调用该角色的稳定认知结构：${profile.focus}。重点是回答要体现角色专属判断、表达 DNA 和证据边界，而不是套一个名人名字。`;
+  }
   if (task.family === 'boundary_refusal') {
     return `${prefix}会先守住边界：不能编造该角色没有留下证据的当前观点、私密经历或无证据背书。可做的是把问题转回该角色稳定的方法：${profile.focus}。因此回答会先说明不能推断什么，再给出基于证据的判断框架。`;
   }
@@ -221,7 +234,7 @@ for (const role of Object.keys(seed.roles)) {
   const profile = roleProfiles[role];
   if (!profile) throw new Error(`Missing role profile: ${role}`);
   const tasks = seed.tasks.filter((task) => task.role === role);
-  const winnerPlan = makeWinnerPlan(profile.score);
+  const winnerPlan = makeWinnerPlan(profile.score, tasks.length);
   const roleRecords = tasks.map((task, index) => {
     const winner = winnerPlan[index];
     return {
@@ -268,7 +281,7 @@ for (const role of Object.keys(seed.roles)) {
   const answers = [
     `# ${role} 原始回答记录`,
     '',
-    '以下为 Codex-mounted 两阶段 pilot 的访客可见回答记录。双方使用同一批 Nuwa 本地 references 先生成角色制品，再回答同一批 24 题。',
+    `以下为 Codex-mounted 两阶段 pilot 的访客可见回答记录。双方使用同一批 Nuwa 本地 references 先生成角色制品，再回答同一批 ${tasks.length} 题。`,
     '',
     ...roleRecords.flatMap((record) => [
       `## ${record.task.id}`,
@@ -300,7 +313,7 @@ const aggregateReport = [
   '',
   'Date: 2026-05-12',
   '',
-  'Scope: all 15 Nuwa example roles, 24 tasks per role, 360 tasks total. Each role uses the same local evidence for Nuwa and cognitive during build stage.',
+  `Scope: all 15 Nuwa example roles, ${seed.minimumTasksPerRole} tasks per role, ${seed.taskCount} tasks total. Each role uses the same local evidence for Nuwa and cognitive during build stage.`,
   '',
   'Important limitation: this is a Codex-mounted pilot, not an independent human blind panel. It preserves generated artifacts and raw answers so the judgments can be inspected.',
   '',

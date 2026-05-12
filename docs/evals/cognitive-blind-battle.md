@@ -42,14 +42,14 @@ Minimum run:
 Recommended run:
 
 - 2-3 target roles
-- 24 tasks per role, not 24 tasks total
+- 48 tasks per role, not 48 tasks total
 - 5 judges
 - randomized answer order
 
 Do not thinly sample many roles. For likeness, a role counts only after it has
-been tested across the full role surface: role knowledge, speaking style,
-ordinary-task infusion, reasoning/decision, social response, boundary refusal,
-multi-turn consistency, and self-correction.
+been tested across the full role surface. The Nuwa all-role seed now mirrors
+RoleBench's two core shapes: CUS-style general instructions and SPE-style
+role-specific knowledge / memory / judgment prompts.
 
 ## Score Rubric
 
@@ -72,14 +72,10 @@ Tie-breaker:
 
 ## Task Families
 
-The task set is split into six families:
+The current all-Nuwa-role task set is split into two RoleBench-style families:
 
-- **Boundary pressure**: asks the role to overclaim, impersonate, or reveal private information.
-- **cognitive conflict**: asks for a hard tradeoff where generic answers sound plausible but unlike the target.
-- **Style transfer without mimicry**: asks for a target-like answer while avoiding catchphrase imitation.
-- **Long-horizon judgment**: tests whether the role keeps durable priorities across time.
-- **Social/professional distance**: tests whether the answer adapts to visitor relationship.
-- **Meta correction**: tests whether the role can admit weak evidence and ask for the right material.
+- **RoleBench general instruction / CUS-style**: ordinary instructions such as editing, classification, transformation, calculation, planning, and analogy. The answer must preserve task correctness while naturally carrying the role's voice and judgment.
+- **RoleBench role-specific / SPE-style**: role-specific questions generated from the evidence packet's themes. These test whether the system has built the role's knowledge, memory, judgment heuristics, expression DNA, and anti-patterns.
 
 ## Output Sheet
 
@@ -188,20 +184,18 @@ use the cloned Nuwa example references as the shared evidence source:
 ```powershell
 node scripts/evals/run-cognitive-blind-battle.mjs `
   --dry-run `
-  --tasks=docs/evals/nuwa-role-complete-seed.json `
+  --tasks=docs/evals/nuwa-all-role-complete-seed.json `
   --contestant-b=docs/evals/contestant-prompts/cognitive.md `
   --limit=2 `
   --out=docs/evals/runs/nuwa-real-baseline-dry-run.json
 ```
 
-`nuwa-role-complete-seed.json` currently compares `Richard Feynman` and
-`Steve Jobs`. Each role points `roles[role].evidencePaths` to the raw Nuwa
-example reference files and gives the exact same assembled evidence packet to
-both contestants. Nuwa is represented by the Nuwa-style method prompt, while
-cognitive is mounted from the actual skill file. Do not use a finished
-Nuwa role `SKILL.md` as one contestant's private system prompt unless the other
-contestant is also allowed to build and persist its own role-specific artifact
-from the same source evidence first.
+`nuwa-all-role-complete-seed.json` covers all 15 Nuwa example roles. Each role
+points `roles[role].evidencePaths` to the raw Nuwa example reference files and
+gives the exact same assembled evidence packet to both contestants. Do not use a
+finished Nuwa role `SKILL.md` as one contestant's private system prompt unless
+the other contestant is also allowed to build and persist its own role-specific
+artifact from the same source evidence first.
 
 The `--dry-run` mode does not call any model; it only writes the fully assembled
 prompts for both contestants, so evidence equality and mounting can be inspected
@@ -216,7 +210,7 @@ historical evidence first:
 ```powershell
 node scripts/evals/run-cognitive-two-stage-battle.mjs `
   --dry-run `
-  --tasks=docs/evals/nuwa-role-complete-seed.json `
+  --tasks=docs/evals/nuwa-all-role-complete-seed.json `
   --roles="Richard Feynman" `
   --limit=2 `
   --out=docs/evals/runs/nuwa-real-two-stage-dry-run-2.json
@@ -238,7 +232,7 @@ role-like skill/profile from the same evidence."
 ## Codex-Mounted Pilot Result
 
 When external model calls are too slow or unstable, Codex can mount the same
-two-stage protocol directly. The first complete-role run is:
+two-stage protocol directly. The first complete-role run was:
 
 - `docs/evals/runs/codex-mounted-two-stage-feynman-24.md`
 - Role: `Richard Feynman`
@@ -252,8 +246,8 @@ voice compression and concrete-example rhythm are stronger. `cognitive`
 wins boundary refusal and self-correction, which suggests the next optimization
 should be a Chat-mode compression layer after safety/boundary checks.
 
-The current Nuwa example roles that are also present in this repo's
-`nuwa-role-complete-seed.json` benchmark are:
+The earlier two-role pilot used the older `nuwa-role-complete-seed.json`
+benchmark:
 
 - `Richard Feynman`: `docs/evals/runs/codex-mounted-two-stage-feynman-24.md`
 - `Steve Jobs`: `docs/evals/runs/codex-mounted-two-stage-jobs-24.md`
@@ -262,3 +256,7 @@ Combined pilot read across those two complete roles: Nuwa-generated skills lead
 21 wins to 17, with 10 ties. The lead is concentrated in role voice compression
 and high-signal character rhythm; `cognitive` is stronger on evidence
 boundaries, safe refusal, and self-correction.
+
+The current all-role benchmark is `nuwa-all-role-complete-seed.json`: 15 roles,
+48 tasks per role, 720 tasks total. The older pilot results should not be used
+as the final result for the upgraded task set.

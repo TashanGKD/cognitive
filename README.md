@@ -49,7 +49,15 @@ The Nuwa comparison follows a RoleBench-inspired shape:
    non-genericness.
 5. Preserve generated artifacts and raw answers for later blind review.
 
-Current pilot result:
+Current seed:
+
+- 15 Nuwa example roles
+- 48 tasks per role
+- 720 tasks total
+- 24 RoleBench CUS-style general-instruction tasks per role
+- 24 RoleBench SPE-style role-specific tasks per role
+
+Historical pilot result before the 720-task upgrade:
 
 | Scope | Nuwa wins | Tashan wins | Ties |
 |---|---:|---:|---:|
@@ -76,7 +84,7 @@ npm run eval:build-nuwa-seed
 Run a dry-run prompt assembly:
 
 ```powershell
-npm run eval:two-stage:dry-run -- --tasks=docs/evals/nuwa-role-complete-seed.json --roles="Richard Feynman" --limit=1
+npm run eval:two-stage:dry-run -- --tasks=docs/evals/nuwa-all-role-complete-seed.json --roles="Richard Feynman" --limit=1
 ```
 
 ## Integrate Back Into cognitive-ask-platform
