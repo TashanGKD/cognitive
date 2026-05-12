@@ -54,6 +54,17 @@
 
 这些不是心理诊断，而是用于 battle 的角色相似度锚点。
 
+## 题量口径澄清
+
+`tashan-profile-helper` 本身不是一个 50 题量表。它包含多套量表：
+
+- RCSS：8 题；
+- AMS-GSR：28 题；
+- Mini-IPIP：20 题；
+- MWMS：19 题。
+
+当前 cognitive 中的“50 题”是我们基于这些量表维度抽象出的**通用认知指纹题组**，不是原始心理测量量表。它的用法是：同一套 50 个通用题干，对每个目标角色分别挂载作答；裁判再根据该角色的证据蒸馏认知指纹评分。因此它是通用题库，不是为某一个角色单独写的题。
+
 ## 建议的新增题量
 
 | 层级 | 每角色新增题量 | 内容 |
@@ -70,6 +81,7 @@
 
 当前已生成的可执行评测资产：
 
+- `docs/evals/profile-helper-generic-cognitive-question-bank-50.json`
 - `docs/evals/profile-helper-cognitive-fingerprint-50-seed.json`
 - `docs/evals/profile-helper-cognitive-fingerprint-50-report.md`
 - 生成脚本：`scripts/evals/build-profile-helper-cognitive-seed.mjs`

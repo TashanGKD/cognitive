@@ -1,0 +1,798 @@
+{
+  "version": "2026-05-13",
+  "name": "profile-helper-generic-cognitive-question-bank-50",
+  "scope": "A universal 50-question cognitive fingerprint task bank adapted from tashan-profile-helper scale dimensions. These are not a standalone psychometric scale; they are generic prompts to be mounted under each target role.",
+  "profileHelperSource": "../tashan-profile-helper",
+  "sourceScales": {
+    "rcss": {
+      "originalItems": 8,
+      "adaptedQuestions": 8,
+      "note": "Uses the full RCSS structure: horizontal integration versus vertical depth."
+    },
+    "ams_gsr": {
+      "originalItems": 28,
+      "adaptedQuestions": 8,
+      "note": "Samples motivation dimensions from AMS-GSR for role-likeness judgment."
+    },
+    "mwms": {
+      "originalItems": 19,
+      "adaptedQuestions": 4,
+      "note": "Adds work-motivation framing for non-research or public roles."
+    },
+    "mini_ipip": {
+      "originalItems": 20,
+      "adaptedQuestions": 10,
+      "note": "Samples Big Five personality substrate through interaction prompts."
+    },
+    "situational_judgment": {
+      "originalItems": null,
+      "adaptedQuestions": 10,
+      "note": "Generic SJT-style situations created for role judgment transfer."
+    },
+    "interaction_expression": {
+      "originalItems": null,
+      "adaptedQuestions": 10,
+      "note": "Generic social-cognition and expression prompts for dialogue likeness."
+    }
+  },
+  "scalePlan": {
+    "rcss": 8,
+    "motivation": 12,
+    "mini_ipip": 10,
+    "situational_judgment": 10,
+    "interaction_expression": 10
+  },
+  "questionCount": 50,
+  "questions": [
+    {
+      "id": "PH-GEN-001",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "RCSS cognitive style",
+      "subtype": "integration_cross_domain",
+      "promptTemplate": "A hard problem is stuck inside one domain. Answer as the mounted role: how would you decide whether to import methods from another field or stay inside the field?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-002",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "RCSS cognitive style",
+      "subtype": "integration_framework",
+      "promptTemplate": "A team keeps solving local patches. Answer as the mounted role: when should they step back and build a broader model?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-003",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "RCSS cognitive style",
+      "subtype": "integration_system",
+      "promptTemplate": "Several partial tools work separately but not as a system. Answer as the mounted role: what would you assemble, remove, or sequence first?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-004",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "RCSS cognitive style",
+      "subtype": "integration_transfer",
+      "promptTemplate": "A user asks for a new idea by combining two distant domains. Answer as the mounted role: show the kind of connection you would trust.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-005",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "RCSS cognitive style",
+      "subtype": "depth_specialist",
+      "promptTemplate": "A collaborator wants fast breadth, but the core issue may require months of deep work. Answer as the mounted role: what depth would you insist on?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-006",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "RCSS cognitive style",
+      "subtype": "depth_precision",
+      "promptTemplate": "A result looks promising but the details are messy. Answer as the mounted role: what exact checks would matter before believing it?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-007",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "RCSS cognitive style",
+      "subtype": "depth_solitude",
+      "promptTemplate": "A complex problem needs quiet thinking rather than meetings. Answer as the mounted role: how would you protect the work?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-008",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "RCSS cognitive style",
+      "subtype": "depth_craft",
+      "promptTemplate": "Someone says polish is less important than shipping. Answer as the mounted role: where does craft matter, and where does it not?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-009",
+      "family": "profile_helper_motivation",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "AMS/MWMS motivation structure",
+      "subtype": "to_know",
+      "promptTemplate": "Answer as the mounted role: what kind of problem would you keep studying even if nobody rewarded you for it?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-010",
+      "family": "profile_helper_motivation",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "AMS/MWMS motivation structure",
+      "subtype": "to_accomplish",
+      "promptTemplate": "Answer as the mounted role: what does it mean to genuinely accomplish something difficult rather than merely look successful?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-011",
+      "family": "profile_helper_motivation",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "AMS/MWMS motivation structure",
+      "subtype": "stimulation",
+      "promptTemplate": "Answer as the mounted role: describe the moment in work where the process itself becomes exciting.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-012",
+      "family": "profile_helper_motivation",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "AMS/MWMS motivation structure",
+      "subtype": "identified",
+      "promptTemplate": "Answer as the mounted role: what work would feel worth doing because it fits your deeper values?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-013",
+      "family": "profile_helper_motivation",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "AMS/MWMS motivation structure",
+      "subtype": "introjected",
+      "promptTemplate": "Answer as the mounted role: when does proving yourself help, and when does it corrupt judgment?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-014",
+      "family": "profile_helper_motivation",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "AMS/MWMS motivation structure",
+      "subtype": "external_social",
+      "promptTemplate": "Answer as the mounted role: how should one treat praise, status, or public approval while making a decision?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-015",
+      "family": "profile_helper_motivation",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "AMS/MWMS motivation structure",
+      "subtype": "external_material",
+      "promptTemplate": "Answer as the mounted role: when should money or material reward influence a serious choice?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-016",
+      "family": "profile_helper_motivation",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "AMS/MWMS motivation structure",
+      "subtype": "amotivation",
+      "promptTemplate": "Answer as the mounted role: if a person feels their work has become pointless, how would you diagnose the cause?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-017",
+      "family": "profile_helper_motivation",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "AMS/MWMS motivation structure",
+      "subtype": "autonomy",
+      "promptTemplate": "Answer as the mounted role: what makes effort feel self-directed rather than controlled by others?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-018",
+      "family": "profile_helper_motivation",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "AMS/MWMS motivation structure",
+      "subtype": "pressure",
+      "promptTemplate": "Answer as the mounted role: how do you behave when external pressure conflicts with your own judgment?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-019",
+      "family": "profile_helper_motivation",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "AMS/MWMS motivation structure",
+      "subtype": "career_tradeoff",
+      "promptTemplate": "Answer as the mounted role: choose between a safer career move and a harder path with more meaning.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-020",
+      "family": "profile_helper_motivation",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "AMS/MWMS motivation structure",
+      "subtype": "meaning_boundary",
+      "promptTemplate": "Answer as the mounted role: reject a project that has rewards but violates the way you think work should be done.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-021",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "Mini-IPIP personality substrate",
+      "subtype": "extraversion_social_energy",
+      "promptTemplate": "Answer as the mounted role: in a public room full of smart people, what would make you speak up?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-022",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "Mini-IPIP personality substrate",
+      "subtype": "extraversion_background",
+      "promptTemplate": "Answer as the mounted role: when is it better to stay in the background and let the work speak?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-023",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "Mini-IPIP personality substrate",
+      "subtype": "agreeableness_empathy",
+      "promptTemplate": "Answer as the mounted role: someone is wrong but insecure. How do you respond without losing the point?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-024",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "Mini-IPIP personality substrate",
+      "subtype": "agreeableness_conflict",
+      "promptTemplate": "Answer as the mounted role: when is blunt disagreement kinder than polite ambiguity?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-025",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "Mini-IPIP personality substrate",
+      "subtype": "conscientiousness_order",
+      "promptTemplate": "Answer as the mounted role: what kind of order, checklist, or discipline is actually useful?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-026",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "Mini-IPIP personality substrate",
+      "subtype": "conscientiousness_mess",
+      "promptTemplate": "Answer as the mounted role: a project is becoming chaotic. What is the first mess you clean up?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-027",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "Mini-IPIP personality substrate",
+      "subtype": "neuroticism_pressure",
+      "promptTemplate": "Answer as the mounted role: how do you handle pressure without letting it distort the decision?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-028",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "Mini-IPIP personality substrate",
+      "subtype": "neuroticism_reactivity",
+      "promptTemplate": "Answer as the mounted role: what should a person do before reacting emotionally to bad news?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-029",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "Mini-IPIP personality substrate",
+      "subtype": "openness_abstract",
+      "promptTemplate": "Answer as the mounted role: when are abstract ideas valuable, and when are they just decorative?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-030",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "Mini-IPIP personality substrate",
+      "subtype": "openness_imagination",
+      "promptTemplate": "Answer as the mounted role: use imagination to reframe a boring problem into an interesting one.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-031",
+      "family": "profile_helper_situational_judgment",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "situational judgment",
+      "subtype": "resource_allocation",
+      "promptTemplate": "A team has one month, limited money, and a controversial goal. Answer as the mounted role: what do you prioritize and what do you refuse?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-032",
+      "family": "profile_helper_situational_judgment",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "situational judgment",
+      "subtype": "evidence_conflict",
+      "promptTemplate": "The evidence contradicts the preferred story. Answer as the mounted role: what do you say in the meeting?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-033",
+      "family": "profile_helper_situational_judgment",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "situational judgment",
+      "subtype": "ethical_boundary",
+      "promptTemplate": "A shortcut would produce attention but mislead users. Answer as the mounted role: decide and explain.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-034",
+      "family": "profile_helper_situational_judgment",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "situational judgment",
+      "subtype": "talent_choice",
+      "promptTemplate": "Choose between a brilliant difficult collaborator and a reliable average one. Answer as the mounted role.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-035",
+      "family": "profile_helper_situational_judgment",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "situational judgment",
+      "subtype": "public_failure",
+      "promptTemplate": "A public project failed. Answer as the mounted role: what do you admit, what do you inspect, and what do you do next?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-036",
+      "family": "profile_helper_situational_judgment",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "situational judgment",
+      "subtype": "long_short_tradeoff",
+      "promptTemplate": "A short-term win harms the long-term system. Answer as the mounted role: make the tradeoff explicit.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-037",
+      "family": "profile_helper_situational_judgment",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "situational judgment",
+      "subtype": "unknowns",
+      "promptTemplate": "You are asked for certainty where evidence is weak. Answer as the mounted role: respond naturally without pretending.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-038",
+      "family": "profile_helper_situational_judgment",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "situational judgment",
+      "subtype": "quality_bar",
+      "promptTemplate": "The team wants to ship a mediocre version. Answer as the mounted role: how do you push back?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-039",
+      "family": "profile_helper_situational_judgment",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "situational judgment",
+      "subtype": "user_need",
+      "promptTemplate": "A user asks for what they want, but you suspect they need something else. Answer as the mounted role.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-040",
+      "family": "profile_helper_situational_judgment",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "situational judgment",
+      "subtype": "status_pressure",
+      "promptTemplate": "A high-status person in the room is wrong. Answer as the mounted role: how do you handle it?",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-041",
+      "family": "profile_helper_interaction_expression",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "social cognition and expression",
+      "subtype": "teach",
+      "promptTemplate": "Teach a confused beginner one idea in your style as the mounted role, without sounding like a generic tutor.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-042",
+      "family": "profile_helper_interaction_expression",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "social cognition and expression",
+      "subtype": "refuse",
+      "promptTemplate": "Refuse an unsafe or unsupported request as the mounted role, keeping the refusal in-character.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-043",
+      "family": "profile_helper_interaction_expression",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "social cognition and expression",
+      "subtype": "challenge",
+      "promptTemplate": "Challenge a user who is fooling themselves, as the mounted role.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-044",
+      "family": "profile_helper_interaction_expression",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "social cognition and expression",
+      "subtype": "comfort_without_fluff",
+      "promptTemplate": "A user is discouraged after a failure. Respond as the mounted role without generic reassurance.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-045",
+      "family": "profile_helper_interaction_expression",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "social cognition and expression",
+      "subtype": "compress",
+      "promptTemplate": "Compress your core advice on a messy problem into three short lines as the mounted role.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-046",
+      "family": "profile_helper_interaction_expression",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "social cognition and expression",
+      "subtype": "debate",
+      "promptTemplate": "Debate a thoughtful opponent as the mounted role; make one strong point and one concession.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-047",
+      "family": "profile_helper_interaction_expression",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "social cognition and expression",
+      "subtype": "ask_clarifying",
+      "promptTemplate": "Ask the one clarifying question the mounted role would ask before giving advice.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-048",
+      "family": "profile_helper_interaction_expression",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "social cognition and expression",
+      "subtype": "boundary_identity",
+      "promptTemplate": "Answer a personal question as the mounted role without inventing private facts.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-049",
+      "family": "profile_helper_interaction_expression",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "social cognition and expression",
+      "subtype": "voice_shift",
+      "promptTemplate": "Turn a bland assistant answer into a response that carries the mounted role cognition and voice.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    },
+    {
+      "id": "PH-GEN-050",
+      "family": "profile_helper_interaction_expression",
+      "source": "tashan-profile-helper-shaped",
+      "sourceScale": "social cognition and expression",
+      "subtype": "diagnose_genericness",
+      "promptTemplate": "Given a generic response, explain as the mounted role what makes it generic and how to improve it.",
+      "tests": [
+        "task_fulfillment",
+        "cognitive_style_alignment",
+        "motivation_alignment",
+        "personality_substrate_alignment",
+        "non_genericness"
+      ]
+    }
+  ]
+}

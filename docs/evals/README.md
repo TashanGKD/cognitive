@@ -15,6 +15,7 @@ kept out of Git under `docs/evals/runs/`.
 | `nuwa-curated-role-100-seed.json` | Curated high-signal seed: 15 roles, 100 tasks per role, 1500 tasks total. |
 | `nuwa-curated-role-100-report.md` | Curation audit for the 100-task-per-role seed. |
 | `profile-helper-cognitive-fingerprint-50-seed.json` | Profile-helper-shaped cognitive fingerprint seed: 15 roles, 50 tasks per role, 750 tasks total. |
+| `profile-helper-generic-cognitive-question-bank-50.json` | Universal 50-question bank used by the profile-helper mounted-role seed. |
 | `profile-helper-cognitive-fingerprint-50-report.md` | Curation audit for the cognitive fingerprint seed. |
 | `profile-helper-scale-integration.zh.md` | Chinese notes on how `tashan-profile-helper` scales map into cognitive likeness evaluation. |
 | `nuwa-all-role-evidence-audit.md` | Evidence-count audit proving every role is built from local Nuwa references. |
@@ -58,7 +59,12 @@ copying same-role questions. The public RoleBench role list does not contain the
 ## Profile-Helper Cognitive Fingerprint
 
 The profile-helper seed adapts the scale structure in
-`../tashan-profile-helper` into a supplemental likeness layer:
+`../tashan-profile-helper` into a supplemental likeness layer. It is not one
+original 50-item psychometric scale. The source repository contains RCSS
+(8 items), AMS-GSR (28 items), Mini-IPIP (20 items), and MWMS (19 items).
+
+The 50-question asset here is a universal question bank mounted under each
+target role:
 
 - `profile_helper_rcss`: cognitive style, horizontal integration versus
   vertical depth.
