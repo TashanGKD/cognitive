@@ -4,6 +4,8 @@
 
 本文用于说明 cognitive 角色相似度评测为什么采用“母池大、评测集可控”的设计，并记录公开基准的 GitHub 星数与每角色题量口径。星数来自 GitHub API 当日查询；题量来自公开 README、数据文件或代码文件。
 
+非 AI 认知与人格测试参考见：`docs/evals/non-ai-cognitive-test-reference.zh.md`。
+
 ## 可直接参考的角色评测基准
 
 | 基准 | 仓库星数 | 角色规模 | 每角色题量/样本量 | 对 cognitive 的启发 |
