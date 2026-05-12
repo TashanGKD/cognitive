@@ -6,6 +6,7 @@ benchmark package.
 | Script | Purpose |
 |---|---|
 | `build-nuwa-all-role-complete-seed.mjs` | Builds the 15-role, 6000-task Nuwa seed and evidence audit from a local `../nuwa-skill` checkout. |
+| `build-nuwa-curated-role-seed.mjs` | Selects a high-signal 100-task-per-role benchmark from the 6000-task mother pool. |
 | `run-cognitive-battle.mjs` | Single-contestant smoke runner for early task and prompt checks. |
 | `run-cognitive-blind-battle.mjs` | Two-contestant blind battle runner for prompt-level comparisons. |
 | `run-cognitive-two-stage-battle.mjs` | Fair Nuwa-vs-Tashan runner: both sides first build role artifacts from the same evidence, then answer the same tasks. |

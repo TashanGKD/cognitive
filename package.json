@@ -9,6 +9,7 @@
   },
   "scripts": {
     "eval:build-nuwa-seed": "node scripts/evals/build-nuwa-all-role-complete-seed.mjs",
+    "eval:build-nuwa-curated": "node scripts/evals/build-nuwa-curated-role-seed.mjs",
     "eval:two-stage:dry-run": "node scripts/evals/run-cognitive-two-stage-battle.mjs --dry-run",
     "eval:codex-mounted-pilot": "node scripts/evals/generate-codex-mounted-all-nuwa-results.mjs"
   }
