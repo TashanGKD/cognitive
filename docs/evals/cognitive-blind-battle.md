@@ -42,7 +42,7 @@ Minimum run:
 Recommended run:
 
 - 2-3 target roles
-- 48 tasks per role, not 48 tasks total
+- 400 tasks per role, not 400 tasks total
 - 5 judges
 - randomized answer order
 
@@ -258,5 +258,5 @@ and high-signal character rhythm; `cognitive` is stronger on evidence
 boundaries, safe refusal, and self-correction.
 
 The current all-role benchmark is `nuwa-all-role-complete-seed.json`: 15 roles,
-48 tasks per role, 720 tasks total. The older pilot results should not be used
+400 tasks per role, 6000 tasks total. The older pilot results should not be used
 as the final result for the upgraded task set.

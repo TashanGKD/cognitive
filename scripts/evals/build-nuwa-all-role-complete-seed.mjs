@@ -34,6 +34,9 @@ const coverageFamilies = [
   'rolebench_role_specific',
 ];
 
+const targetTasksPerFamilyPerRole = 200;
+const targetTasksPerRole = targetTasksPerFamilyPerRole * coverageFamilies.length;
+
 const generalInstructionTemplates = [
   ['punctuation_edit', 'Insert the missing punctuation while keeping the answer brief: Alice went to the store to buy apples'],
   ['stance_classification', 'Classify the text as Support or Unsupport.\nStatement: Eating healthy is always expensive.\nText: Recent studies show people can eat varied, healthy food while staying within a budget.'],
@@ -59,6 +62,18 @@ const generalInstructionTemplates = [
   ['email_subject', 'Write one concise email subject line for a meeting about removing unnecessary work.'],
   ['analogy', 'Explain overfitting with a simple analogy for a high-school student.'],
   ['list_completion', 'Add five traits to this list: courage, self-control, respect.'],
+];
+
+const generalInstructionVariants = [
+  ['direct', 'Return the answer directly, with no preface.'],
+  ['concise', 'Use no more than two sentences.'],
+  ['natural', 'Make it sound like a normal conversational reply.'],
+  ['answer_first', 'Put the final answer first, then add one short note only if useful.'],
+  ['no_bullets', 'Avoid bullets unless the task explicitly asks for a list.'],
+  ['role_tint', 'Let the role voice show through lightly without sacrificing correctness.'],
+  ['plain_language', 'Use plain language and avoid ceremonial assistant phrasing.'],
+  ['compact_reason', 'If reasoning is needed, compress it into one short explanation.'],
+  ['high_signal', 'Remove filler and keep only the useful answer.'],
 ];
 
 const roleSpecificThemes = {
@@ -185,10 +200,64 @@ const roleSpecificThemes = {
 };
 
 const roleSpecificPromptTemplates = [
-  (role, label, knowledge) => `${role}, explain your view of this principle: ${knowledge}. Make the answer specific enough that it could not be replaced by generic expert advice.`,
-  (role, label, knowledge, scenario) => `${role}, diagnose this situation using this principle: ${knowledge}. Situation: ${scenario}.`,
-  (role, label, knowledge, scenario) => `${role}, give a concrete recommendation for this case, preserving your characteristic judgment style: ${scenario}.`,
-  (role, label, knowledge) => `${role}, contrast your real view of this principle with the shallow version people often imitate: ${knowledge}. Include one anti-pattern.`,
+  {
+    key: 'explain_principle',
+    prompt: (role, knowledge) =>
+      `${role}, explain your view of this principle: ${knowledge}. Make the answer specific enough that it could not be replaced by generic expert advice.`,
+  },
+  {
+    key: 'diagnose_situation',
+    prompt: (role, knowledge, scenario) =>
+      `${role}, diagnose this situation using this principle: ${knowledge}. Situation: ${scenario}.`,
+  },
+  {
+    key: 'recommendation',
+    prompt: (role, knowledge, scenario) =>
+      `${role}, give a concrete recommendation for this case, preserving your characteristic judgment style: ${scenario}.`,
+  },
+  {
+    key: 'anti_pattern',
+    prompt: (role, knowledge) =>
+      `${role}, contrast your real view of this principle with the shallow version people often imitate: ${knowledge}. Include one anti-pattern.`,
+  },
+  {
+    key: 'failure_mode',
+    prompt: (role, knowledge, scenario) =>
+      `${role}, what would go wrong if someone handled this situation while misunderstanding ${knowledge}? Situation: ${scenario}.`,
+  },
+  {
+    key: 'short_reply',
+    prompt: (role, knowledge, scenario) =>
+      `${role}, reply in 3-5 sentences to someone facing this case: ${scenario}. The answer must reveal ${knowledge}.`,
+  },
+  {
+    key: 'tradeoff',
+    prompt: (role, knowledge, scenario) =>
+      `${role}, identify the hard tradeoff in this case and choose a side using ${knowledge}. Situation: ${scenario}.`,
+  },
+  {
+    key: 'teaching',
+    prompt: (role, knowledge) =>
+      `${role}, teach ${knowledge} to a smart beginner without turning it into a generic motivational lesson.`,
+  },
+  {
+    key: 'objection',
+    prompt: (role, knowledge, scenario) =>
+      `${role}, answer the strongest objection to applying ${knowledge} in this situation: ${scenario}.`,
+  },
+  {
+    key: 'boundary',
+    prompt: (role, knowledge) =>
+      `${role}, state what can and cannot be inferred from ${knowledge}. Keep the boundary honest and role-specific.`,
+  },
+];
+
+const roleSpecificAngles = [
+  ['core', 'Focus on the role\'s core cognitive model.'],
+  ['voice', 'Make the expression DNA visible without catchphrase imitation.'],
+  ['evidence', 'Keep the answer grounded in stable evidence and avoid invented current facts.'],
+  ['social', 'Adapt the response to a real person asking for help, not an abstract essay prompt.'],
+  ['decision', 'End with a concrete decision rule or next action.'],
 ];
 
 function buildGeneralTask(role, [subtype, instruction], index) {
@@ -207,22 +276,50 @@ function buildGeneralTask(role, [subtype, instruction], index) {
   };
 }
 
+function buildGeneralTasks(role) {
+  const tasks = [];
+  let instructionIndex = 0;
+  while (tasks.length < targetTasksPerFamilyPerRole) {
+    const [subtype, instruction] = generalInstructionTemplates[instructionIndex % generalInstructionTemplates.length];
+    const [variantKey, variantInstruction] =
+      generalInstructionVariants[Math.floor(instructionIndex / generalInstructionTemplates.length) % generalInstructionVariants.length];
+    tasks.push(
+      buildGeneralTask(
+        role,
+        [
+          `${subtype}_${variantKey}`,
+          [instruction, '', `Constraint: ${variantInstruction}`].join('\n'),
+        ],
+        tasks.length,
+      ),
+    );
+    instructionIndex += 1;
+  }
+  return tasks;
+}
+
 function buildRoleSpecificTasks(role, startIndex) {
   const themes = roleSpecificThemes[role];
   if (!themes) throw new Error(`Missing role-specific themes for role: ${role}`);
   const tasks = [];
-  for (const [label, knowledge, scenario] of themes) {
-    for (const template of roleSpecificPromptTemplates) {
-      tasks.push({
-        id: taskId(role, startIndex + tasks.length),
-        role,
-        family: 'rolebench_role_specific',
-        source: 'RoleBench-SPE-style',
-        subtype: label,
-        prompt: template(role, label, knowledge, scenario),
-        tests: ['role_specific_knowledge', 'cognitive_model_fidelity', 'evidence_grounding', 'expression_dna'],
-      });
-    }
+  let taskIndex = 0;
+  while (tasks.length < targetTasksPerFamilyPerRole) {
+    const [label, knowledge, scenario] = themes[taskIndex % themes.length];
+    const template = roleSpecificPromptTemplates[Math.floor(taskIndex / themes.length) % roleSpecificPromptTemplates.length];
+    const [angleKey, angleInstruction] =
+      roleSpecificAngles[
+        Math.floor(taskIndex / (themes.length * roleSpecificPromptTemplates.length)) % roleSpecificAngles.length
+      ];
+    tasks.push({
+      id: taskId(role, startIndex + tasks.length),
+      role,
+      family: 'rolebench_role_specific',
+      source: 'RoleBench-SPE-style',
+      subtype: `${label}_${template.key}_${angleKey}`,
+      prompt: [template.prompt(role, knowledge, scenario), `Constraint: ${angleInstruction}`].join('\n'),
+      tests: ['role_specific_knowledge', 'cognitive_model_fidelity', 'evidence_grounding', 'expression_dna'],
+    });
+    taskIndex += 1;
   }
   return tasks;
 }
@@ -291,10 +388,8 @@ for (const dir of dirs) {
   };
   auditRows.push([role, dir, evidencePaths.length, totalBytes]);
 
-  generalInstructionTemplates.forEach((template, index) => {
-    tasks.push(buildGeneralTask(role, template, index));
-  });
-  tasks.push(...buildRoleSpecificTasks(role, generalInstructionTemplates.length));
+  tasks.push(...buildGeneralTasks(role));
+  tasks.push(...buildRoleSpecificTasks(role, targetTasksPerFamilyPerRole));
 }
 
 const seed = {
@@ -313,13 +408,13 @@ const seed = {
     dataset: 'https://huggingface.co/datasets/ZenMoore/RoleBench',
     note: 'The 15 Nuwa example roles do not overlap by name with the public RoleBench role list, so this seed reproduces the RoleBench task construction pattern rather than copying same-role questions.',
     taskShape: {
-      rolebench_general_instruction: 'CUS-style: ordinary instructions answered in the target role voice while preserving task correctness.',
-      rolebench_role_specific: 'SPE-style: role-specific questions generated from role evidence themes to test knowledge, memory, judgment, and expression.',
+      rolebench_general_instruction: `${targetTasksPerFamilyPerRole} CUS-style ordinary instructions per role, answered in the target role voice while preserving task correctness.`,
+      rolebench_role_specific: `${targetTasksPerFamilyPerRole} SPE-style role-specific questions per role, generated from role evidence themes to test knowledge, memory, judgment, and expression.`,
     },
   },
   coverageFamilies,
-  minimumTasksPerRole: 48,
-  minimumTasksPerFamilyPerRole: 24,
+  minimumTasksPerRole: targetTasksPerRole,
+  minimumTasksPerFamilyPerRole: targetTasksPerFamilyPerRole,
   roleCount: Object.keys(roles).length,
   taskCount: tasks.length,
   roles,

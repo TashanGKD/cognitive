@@ -52,12 +52,12 @@ The Nuwa comparison follows a RoleBench-inspired shape:
 Current seed:
 
 - 15 Nuwa example roles
-- 48 tasks per role
-- 720 tasks total
-- 24 RoleBench CUS-style general-instruction tasks per role
-- 24 RoleBench SPE-style role-specific tasks per role
+- 400 tasks per role
+- 6000 tasks total
+- 200 RoleBench CUS-style general-instruction tasks per role
+- 200 RoleBench SPE-style role-specific tasks per role
 
-Historical pilot result before the 720-task upgrade:
+Historical pilot result before the 6000-task upgrade:
 
 | Scope | Nuwa wins | Tashan wins | Ties |
 |---|---:|---:|---:|
