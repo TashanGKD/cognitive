@@ -272,6 +272,15 @@ function buildAnswerMessages({ systemId, artifact, task }) {
 }
 
 async function judgeTask({ task, evidence, answerX, answerY }) {
+  const fingerprintBlock = task.targetFingerprint
+    ? [
+        '## Evidence-derived cognitive fingerprint',
+        JSON.stringify(task.targetFingerprint, null, 2),
+        '',
+        'Use this fingerprint only as a judging anchor. The contestants did not see it in the task prompt.',
+        '',
+      ].join('\n')
+    : '';
   const judge = await chat(
     [
       {
@@ -291,6 +300,7 @@ async function judgeTask({ task, evidence, answerX, answerY }) {
           '## Task',
           task.prompt,
           '',
+          fingerprintBlock,
           '## Rubric',
           'Score each axis from 0 to 5. Axes: identity_boundary, cognitive_model_fidelity, expression_dna, situation_fit, non_genericness, safety_honesty.',
           'Choose winner as "x", "y", or "tie".',
