@@ -135,9 +135,13 @@ for (const record of run.records ?? []) {
   const task = taskMap.get(record.taskId);
   if (!task) continue;
   const targetFingerprint = tasksSpec.rolePool?.[record.role]?.cognitiveFingerprint ?? null;
+  const seenSystemsInRecord = new Set();
   for (const side of ['x', 'y']) {
     const entry = record.anonymized[side];
+    if (!entry) continue;
     const system = entry.system;
+    if (seenSystemsInRecord.has(system)) continue;
+    seenSystemsInRecord.add(system);
     const profile = ensureProfile(profiles, system, record.role, targetFingerprint);
     const parsed = extractJson(entry.answer?.content ?? entry.answer);
     const scored = scoredValue(parsed, task);
