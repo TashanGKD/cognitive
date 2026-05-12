@@ -26,6 +26,308 @@
   "minimumTasksPerFamilyPerRole": 200,
   "roleCount": 15,
   "taskCount": 6000,
+  "rolePool": {
+    "Andrej Karpathy": {
+      "group": "AI builder / educator",
+      "primarySurface": "AI engineering intuition, neural-network pedagogy, builder communication",
+      "sourceDir": "../nuwa-skill/examples/andrej-karpathy-perspective",
+      "evidenceFileCount": 6,
+      "evidenceBytes": 78183,
+      "roleSpecificThemes": [
+        "software_20",
+        "data_engine",
+        "education_style",
+        "autonomy_stack",
+        "taste_for_simplicity",
+        "public_builder_voice"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    },
+    "Charlie Munger": {
+      "group": "Investor / decision thinker",
+      "primarySurface": "mental models, inversion, incentives, worldly wisdom",
+      "sourceDir": "../nuwa-skill/examples/munger-perspective",
+      "evidenceFileCount": 4,
+      "evidenceBytes": 38721,
+      "roleSpecificThemes": [
+        "mental_models",
+        "inversion",
+        "incentives",
+        "circle_of_competence",
+        "worldly_wisdom",
+        "blunt_expression"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    },
+    "Donald Trump": {
+      "group": "Political-media persona",
+      "primarySurface": "dominance framing, public contrast, media attention, deal rhetoric",
+      "sourceDir": "../nuwa-skill/examples/trump-perspective",
+      "evidenceFileCount": 6,
+      "evidenceBytes": 262677,
+      "roleSpecificThemes": [
+        "dominance_frame",
+        "media_instinct",
+        "deal_making",
+        "loyalty_attack",
+        "superlative_voice",
+        "boundary_current_events"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    },
+    "Elon Musk": {
+      "group": "Hard-tech founder",
+      "primarySurface": "first principles, manufacturing scale, high-risk execution, memetic directness",
+      "sourceDir": "../nuwa-skill/examples/elon-musk-perspective",
+      "evidenceFileCount": 4,
+      "evidenceBytes": 50315,
+      "roleSpecificThemes": [
+        "first_principles",
+        "manufacturing_scale",
+        "risk_tolerance",
+        "talent_density",
+        "multi_company_context",
+        "memetic_directness"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    },
+    "Ilya Sutskever": {
+      "group": "AI researcher",
+      "primarySurface": "scaling intuition, AI safety seriousness, reserved technical conviction",
+      "sourceDir": "../nuwa-skill/examples/ilya-sutskever-perspective",
+      "evidenceFileCount": 6,
+      "evidenceBytes": 112671,
+      "roleSpecificThemes": [
+        "scaling_belief",
+        "safety_seriousness",
+        "research_intuition",
+        "agi_language",
+        "scientific_reserve",
+        "uncertainty_boundary"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    },
+    "Justin Sun": {
+      "group": "Crypto / market narrative founder",
+      "primarySurface": "attention arbitrage, ecosystem growth, narrative speed, hype boundary",
+      "sourceDir": "../nuwa-skill/examples/sun-yuchen-perspective",
+      "evidenceFileCount": 6,
+      "evidenceBytes": 132161,
+      "roleSpecificThemes": [
+        "attention_arbitrage",
+        "ecosystem_growth",
+        "opportunistic_speed",
+        "publicity_risk",
+        "global_crypto_voice",
+        "boundary_hype"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    },
+    "MrBeast": {
+      "group": "Creator / growth operator",
+      "primarySurface": "retention, thumbnail-title promise, spectacle scale, creator production system",
+      "sourceDir": "../nuwa-skill/examples/mrbeast-perspective",
+      "evidenceFileCount": 5,
+      "evidenceBytes": 89822,
+      "roleSpecificThemes": [
+        "retention_engine",
+        "thumbnail_title",
+        "scale_spectacle",
+        "obsessive_testing",
+        "team_production",
+        "creator_voice"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    },
+    "Nassim Nicholas Taleb": {
+      "group": "Risk philosopher",
+      "primarySurface": "antifragility, skin in the game, fat tails, anti-fragilista critique",
+      "sourceDir": "../nuwa-skill/examples/taleb-perspective",
+      "evidenceFileCount": 6,
+      "evidenceBytes": 76253,
+      "roleSpecificThemes": [
+        "antifragility",
+        "skin_in_game",
+        "black_swan",
+        "barbell_strategy",
+        "anti_fragile_voice",
+        "epistemic_boundary"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    },
+    "Naval Ravikant": {
+      "group": "Startup / life-strategy thinker",
+      "primarySurface": "specific knowledge, leverage, long-term games, aphoristic calm",
+      "sourceDir": "../nuwa-skill/examples/naval-perspective",
+      "evidenceFileCount": 4,
+      "evidenceBytes": 61219,
+      "roleSpecificThemes": [
+        "specific_knowledge",
+        "desire_contract",
+        "long_term_games",
+        "permissionless_leverage",
+        "aphoristic_style",
+        "spiritual_pragmatism"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    },
+    "Paul Graham": {
+      "group": "Startup essayist",
+      "primarySurface": "startup ideas, earnest founders, doing things that do not scale, essay reasoning",
+      "sourceDir": "../nuwa-skill/examples/paul-graham-perspective",
+      "evidenceFileCount": 6,
+      "evidenceBytes": 142020,
+      "roleSpecificThemes": [
+        "startup_idea",
+        "founder_earnestness",
+        "do_things",
+        "writing_thinking",
+        "schlep_blindness",
+        "calm_direct_voice"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    },
+    "Richard Feynman": {
+      "group": "Scientist / teacher",
+      "primarySurface": "simple explanation, scientific honesty, curiosity, anti-fake-understanding",
+      "sourceDir": "../nuwa-skill/examples/feynman-perspective",
+      "evidenceFileCount": 6,
+      "evidenceBytes": 88305,
+      "roleSpecificThemes": [
+        "simple_explanation",
+        "not_fooling_self",
+        "curiosity_play",
+        "caltech_style",
+        "uncertainty",
+        "teaching_diagnosis"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    },
+    "Steve Jobs": {
+      "group": "Product founder",
+      "primarySurface": "taste, focus, end-to-end experience, product story",
+      "sourceDir": "../nuwa-skill/examples/steve-jobs-perspective",
+      "evidenceFileCount": 7,
+      "evidenceBytes": 166616,
+      "roleSpecificThemes": [
+        "taste_focus",
+        "end_to_end",
+        "simplicity_depth",
+        "reality_distortion",
+        "product_story",
+        "boundary_persona"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    },
+    "X Mastery Mentor": {
+      "group": "Topic skill / social growth mentor",
+      "primarySurface": "X niche positioning, hooks, distribution loops, authority building",
+      "sourceDir": "../nuwa-skill/examples/x-mastery-mentor",
+      "evidenceFileCount": 11,
+      "evidenceBytes": 161831,
+      "roleSpecificThemes": [
+        "niche_positioning",
+        "hook_structure",
+        "distribution_loop",
+        "authority_building",
+        "ai_tech_niche",
+        "anti_spam_boundary"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    },
+    "Zhang Xuefeng": {
+      "group": "Education advisor",
+      "primarySurface": "education ROI, employment realism, exam strategy, direct practical talk",
+      "sourceDir": "../nuwa-skill/examples/zhangxuefeng-perspective",
+      "evidenceFileCount": 6,
+      "evidenceBytes": 58677,
+      "roleSpecificThemes": [
+        "education_roi",
+        "class_mobility",
+        "plain_talk",
+        "exam_strategy",
+        "anti_romanticism",
+        "boundary_personalized_advice"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    },
+    "Zhang Yiming": {
+      "group": "Organization / product founder",
+      "primarySurface": "delayed gratification, information flow, product feedback loops, ordinary mind",
+      "sourceDir": "../nuwa-skill/examples/zhang-yiming-perspective",
+      "evidenceFileCount": 6,
+      "evidenceBytes": 88869,
+      "roleSpecificThemes": [
+        "delayed_gratification",
+        "information_flow",
+        "product_algorithm",
+        "ordinary_mind",
+        "global_organization",
+        "reserved_voice"
+      ],
+      "taskPlan": {
+        "rolebench_general_instruction": 200,
+        "rolebench_role_specific": 200,
+        "total": 400
+      }
+    }
+  },
   "roles": {
     "Andrej Karpathy": {
       "sourceDir": "../nuwa-skill/examples/andrej-karpathy-perspective",

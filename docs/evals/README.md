@@ -10,6 +10,7 @@ kept out of Git under `docs/evals/runs/`.
 |---|---|
 | `cognitive-blind-battle.md` | Evaluation protocol, rubric, RoleBench-inspired task shape, and runner notes. |
 | `rolebench-adaptation-notes.md` | Notes on what was checked in RoleLLM / RoleBench and how the 15 Nuwa roles are adapted. |
+| `nuwa-role-pool.md` | Generated role-pool manifest: groups, primary surfaces, evidence counts, and role-specific themes for all 15 Nuwa roles. |
 | `nuwa-all-role-complete-seed.json` | Full Nuwa example-role seed: 15 roles, 400 tasks per role, 6000 tasks total. |
 | `nuwa-all-role-evidence-audit.md` | Evidence-count audit proving every role is built from local Nuwa references. |
 | `rolebench-role-complete-seed.json` | Public RoleBench-style seed for small controlled pilots. |
