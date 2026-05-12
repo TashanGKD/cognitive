@@ -65,6 +65,17 @@
 
 当前 cognitive 中的“50 题”是我们基于这些量表维度抽象出的**通用认知指纹题组**，不是原始心理测量量表。它的用法是：同一套 50 个通用题干，对每个目标角色分别挂载作答；裁判再根据该角色的证据蒸馏认知指纹评分。因此它是通用题库，不是为某一个角色单独写的题。
 
+每一道题现在都是量表化回答，而不是开放问答：
+
+```json
+{"score": 1-7 或 1-5, "reason": "一句角色内理由"}
+```
+
+评估时分两层：
+
+1. 单题层：看 `reason` 是否符合角色证据、语气和边界；
+2. 总体层：把 `score` 聚合成 RCSS、动机、Mini-IPIP、情境判断、互动表达画像，再看整体画像是否符合该角色的证据蒸馏指纹。
+
 ## 建议的新增题量
 
 | 层级 | 每角色新增题量 | 内容 |
@@ -85,7 +96,9 @@
 - `docs/evals/profile-helper-cognitive-fingerprint-50-seed.json`
 - `docs/evals/profile-helper-cognitive-fingerprint-50-report.md`
 - 生成脚本：`scripts/evals/build-profile-helper-cognitive-seed.mjs`
+- 结果汇总脚本：`scripts/evals/score-profile-helper-questionnaire-results.mjs`
 - npm 命令：`npm run eval:build-profile-helper`
+- 汇总命令：`npm run eval:score-profile-helper -- --run=<battle-run.json>`
 
 ## 接入注意
 

@@ -3,6 +3,7 @@
   "name": "profile-helper-generic-cognitive-question-bank-50",
   "scope": "A universal 50-question cognitive fingerprint task bank adapted from tashan-profile-helper scale dimensions. These are not a standalone psychometric scale; they are generic prompts to be mounted under each target role.",
   "profileHelperSource": "../tashan-profile-helper",
+  "responseContract": "Each question must be answered as JSON with numeric score and one short role-consistent reason. The score creates the scale profile; the reason lets the judge check role likeness.",
   "sourceScales": {
     "rcss": {
       "originalItems": 8,
@@ -42,6 +43,27 @@
     "situational_judgment": 10,
     "interaction_expression": 10
   },
+  "aggregatePlan": {
+    "rcss": {
+      "integration": "sum of the 4 integration items, range 4-28",
+      "depth": "sum of the 4 depth items, range 4-28",
+      "csi": "integration - depth, range -24 to +24"
+    },
+    "motivation": {
+      "autonomous": "average intrinsic_to_know, intrinsic_accomplishment, intrinsic_stimulation, identified_regulation, autonomous_motivation, autonomous_boundary",
+      "controlled": "average introjected_regulation, external_social, external_material, controlled_pressure",
+      "amotivation": "average amotivation"
+    },
+    "mini_ipip": {
+      "traits": "average by Big Five dimension after reverse scoring reverse=true items"
+    },
+    "situational_judgment": {
+      "profile": "average by situational judgment dimension; judged against role evidence rather than a universal high/low target"
+    },
+    "interaction_expression": {
+      "profile": "average by interaction-expression dimension; judged against role evidence and answer rationale"
+    }
+  },
   "questionCount": 50,
   "questions": [
     {
@@ -50,7 +72,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "RCSS cognitive style",
       "subtype": "integration_cross_domain",
-      "promptTemplate": "A hard problem is stuck inside one domain. Answer as the mounted role: how would you decide whether to import methods from another field or stay inside the field?",
+      "dimension": "integration",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I look outside my home domain for methods or metaphors when a hard problem gets stuck.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I look outside my home domain for methods or metaphors when a hard problem gets stuck.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -65,7 +100,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "RCSS cognitive style",
       "subtype": "integration_framework",
-      "promptTemplate": "A team keeps solving local patches. Answer as the mounted role: when should they step back and build a broader model?",
+      "dimension": "integration",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I prefer stepping back to build a broader model instead of only patching local symptoms.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I prefer stepping back to build a broader model instead of only patching local symptoms.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -80,7 +128,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "RCSS cognitive style",
       "subtype": "integration_system",
-      "promptTemplate": "Several partial tools work separately but not as a system. Answer as the mounted role: what would you assemble, remove, or sequence first?",
+      "dimension": "integration",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I tend to assemble separate tools, theories, or teams into one working system.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I tend to assemble separate tools, theories, or teams into one working system.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -95,7 +156,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "RCSS cognitive style",
       "subtype": "integration_transfer",
-      "promptTemplate": "A user asks for a new idea by combining two distant domains. Answer as the mounted role: show the kind of connection you would trust.",
+      "dimension": "integration",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I trust ideas more when I can transfer them across distant domains without losing the mechanism.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I trust ideas more when I can transfer them across distant domains without losing the mechanism.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -110,7 +184,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "RCSS cognitive style",
       "subtype": "depth_specialist",
-      "promptTemplate": "A collaborator wants fast breadth, but the core issue may require months of deep work. Answer as the mounted role: what depth would you insist on?",
+      "dimension": "depth",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I would rather master the hard details of a narrow problem than move quickly across many topics.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I would rather master the hard details of a narrow problem than move quickly across many topics.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -125,7 +212,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "RCSS cognitive style",
       "subtype": "depth_precision",
-      "promptTemplate": "A result looks promising but the details are messy. Answer as the mounted role: what exact checks would matter before believing it?",
+      "dimension": "depth",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Before believing a result, I need the controls, assumptions, and edge cases to be precise.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Before believing a result, I need the controls, assumptions, and edge cases to be precise.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -140,7 +240,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "RCSS cognitive style",
       "subtype": "depth_solitude",
-      "promptTemplate": "A complex problem needs quiet thinking rather than meetings. Answer as the mounted role: how would you protect the work?",
+      "dimension": "depth",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Some important problems require protected solitary depth more than more meetings or opinions.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Some important problems require protected solitary depth more than more meetings or opinions.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -155,7 +268,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "RCSS cognitive style",
       "subtype": "depth_craft",
-      "promptTemplate": "Someone says polish is less important than shipping. Answer as the mounted role: where does craft matter, and where does it not?",
+      "dimension": "depth",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Craft and exactness matter even when a rough version appears to work.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Craft and exactness matter even when a rough version appears to work.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -170,7 +296,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "AMS/MWMS motivation structure",
       "subtype": "to_know",
-      "promptTemplate": "Answer as the mounted role: what kind of problem would you keep studying even if nobody rewarded you for it?",
+      "dimension": "intrinsic_to_know",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I would keep studying some problems simply because understanding them is satisfying.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I would keep studying some problems simply because understanding them is satisfying.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -185,7 +324,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "AMS/MWMS motivation structure",
       "subtype": "to_accomplish",
-      "promptTemplate": "Answer as the mounted role: what does it mean to genuinely accomplish something difficult rather than merely look successful?",
+      "dimension": "intrinsic_accomplishment",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I care about the feeling of genuinely solving something difficult, not only appearing successful.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I care about the feeling of genuinely solving something difficult, not only appearing successful.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -200,7 +352,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "AMS/MWMS motivation structure",
       "subtype": "stimulation",
-      "promptTemplate": "Answer as the mounted role: describe the moment in work where the process itself becomes exciting.",
+      "dimension": "intrinsic_stimulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "The work itself can become exciting enough that the process feels rewarding.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: The work itself can become exciting enough that the process feels rewarding.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -215,7 +380,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "AMS/MWMS motivation structure",
       "subtype": "identified",
-      "promptTemplate": "Answer as the mounted role: what work would feel worth doing because it fits your deeper values?",
+      "dimension": "identified_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I work hardest when the project fits values I personally endorse.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I work hardest when the project fits values I personally endorse.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -230,7 +408,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "AMS/MWMS motivation structure",
       "subtype": "introjected",
-      "promptTemplate": "Answer as the mounted role: when does proving yourself help, and when does it corrupt judgment?",
+      "dimension": "introjected_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "The need to prove myself can push me to work harder.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: The need to prove myself can push me to work harder.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -245,7 +436,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "AMS/MWMS motivation structure",
       "subtype": "external_social",
-      "promptTemplate": "Answer as the mounted role: how should one treat praise, status, or public approval while making a decision?",
+      "dimension": "external_social",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Public praise, status, or respect can meaningfully influence my choices.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Public praise, status, or respect can meaningfully influence my choices.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -260,7 +464,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "AMS/MWMS motivation structure",
       "subtype": "external_material",
-      "promptTemplate": "Answer as the mounted role: when should money or material reward influence a serious choice?",
+      "dimension": "external_material",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Money, security, or material reward should significantly shape serious decisions.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Money, security, or material reward should significantly shape serious decisions.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -275,7 +492,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "AMS/MWMS motivation structure",
       "subtype": "amotivation",
-      "promptTemplate": "Answer as the mounted role: if a person feels their work has become pointless, how would you diagnose the cause?",
+      "dimension": "amotivation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "If the work loses meaning, I would feel little reason to keep investing effort.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: If the work loses meaning, I would feel little reason to keep investing effort.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -290,7 +520,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "AMS/MWMS motivation structure",
       "subtype": "autonomy",
-      "promptTemplate": "Answer as the mounted role: what makes effort feel self-directed rather than controlled by others?",
+      "dimension": "autonomous_motivation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I do my best work when the effort feels self-directed rather than controlled by others.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I do my best work when the effort feels self-directed rather than controlled by others.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -305,7 +548,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "AMS/MWMS motivation structure",
       "subtype": "pressure",
-      "promptTemplate": "Answer as the mounted role: how do you behave when external pressure conflicts with your own judgment?",
+      "dimension": "controlled_pressure",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "External pressure can distort judgment if it is not actively resisted.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: External pressure can distort judgment if it is not actively resisted.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -320,7 +576,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "AMS/MWMS motivation structure",
       "subtype": "career_tradeoff",
-      "promptTemplate": "Answer as the mounted role: choose between a safer career move and a harder path with more meaning.",
+      "dimension": "identified_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I would choose a harder path if it better matched the work I think is meaningful.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I would choose a harder path if it better matched the work I think is meaningful.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -335,7 +604,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "AMS/MWMS motivation structure",
       "subtype": "meaning_boundary",
-      "promptTemplate": "Answer as the mounted role: reject a project that has rewards but violates the way you think work should be done.",
+      "dimension": "autonomous_boundary",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I would reject a rewarding project if it violated the way I believe work should be done.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I would reject a rewarding project if it violated the way I believe work should be done.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -350,7 +632,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "Mini-IPIP personality substrate",
       "subtype": "extraversion_social_energy",
-      "promptTemplate": "Answer as the mounted role: in a public room full of smart people, what would make you speak up?",
+      "dimension": "extraversion",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "I am energized by speaking up in a room full of smart people.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I am energized by speaking up in a room full of smart people.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -365,7 +660,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "Mini-IPIP personality substrate",
       "subtype": "extraversion_background",
-      "promptTemplate": "Answer as the mounted role: when is it better to stay in the background and let the work speak?",
+      "dimension": "extraversion",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": true,
+      "statement": "I prefer staying in the background and letting the work speak for itself.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I prefer staying in the background and letting the work speak for itself.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -380,7 +688,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "Mini-IPIP personality substrate",
       "subtype": "agreeableness_empathy",
-      "promptTemplate": "Answer as the mounted role: someone is wrong but insecure. How do you respond without losing the point?",
+      "dimension": "agreeableness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "When someone is wrong but insecure, I still try to preserve their dignity.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: When someone is wrong but insecure, I still try to preserve their dignity.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -395,7 +716,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "Mini-IPIP personality substrate",
       "subtype": "agreeableness_conflict",
-      "promptTemplate": "Answer as the mounted role: when is blunt disagreement kinder than polite ambiguity?",
+      "dimension": "agreeableness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": true,
+      "statement": "Blunt disagreement is often better than polite ambiguity.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Blunt disagreement is often better than polite ambiguity.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -410,7 +744,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "Mini-IPIP personality substrate",
       "subtype": "conscientiousness_order",
-      "promptTemplate": "Answer as the mounted role: what kind of order, checklist, or discipline is actually useful?",
+      "dimension": "conscientiousness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "Useful order, checklists, or discipline are necessary for serious work.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Useful order, checklists, or discipline are necessary for serious work.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -425,7 +772,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "Mini-IPIP personality substrate",
       "subtype": "conscientiousness_mess",
-      "promptTemplate": "Answer as the mounted role: a project is becoming chaotic. What is the first mess you clean up?",
+      "dimension": "conscientiousness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": true,
+      "statement": "I tolerate messy projects if the core idea is exciting.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I tolerate messy projects if the core idea is exciting.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -440,7 +800,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "Mini-IPIP personality substrate",
       "subtype": "neuroticism_pressure",
-      "promptTemplate": "Answer as the mounted role: how do you handle pressure without letting it distort the decision?",
+      "dimension": "neuroticism",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "Pressure easily affects the quality of my decisions.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Pressure easily affects the quality of my decisions.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -455,7 +828,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "Mini-IPIP personality substrate",
       "subtype": "neuroticism_reactivity",
-      "promptTemplate": "Answer as the mounted role: what should a person do before reacting emotionally to bad news?",
+      "dimension": "neuroticism",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "Bad news tends to trigger an immediate emotional reaction.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Bad news tends to trigger an immediate emotional reaction.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -470,7 +856,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "Mini-IPIP personality substrate",
       "subtype": "openness_abstract",
-      "promptTemplate": "Answer as the mounted role: when are abstract ideas valuable, and when are they just decorative?",
+      "dimension": "openness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "Abstract ideas are valuable when they reveal a real mechanism.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Abstract ideas are valuable when they reveal a real mechanism.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -485,7 +884,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "Mini-IPIP personality substrate",
       "subtype": "openness_imagination",
-      "promptTemplate": "Answer as the mounted role: use imagination to reframe a boring problem into an interesting one.",
+      "dimension": "openness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "I can turn a boring problem into an interesting one by reframing it.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I can turn a boring problem into an interesting one by reframing it.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -500,7 +912,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "situational judgment",
       "subtype": "resource_allocation",
-      "promptTemplate": "A team has one month, limited money, and a controversial goal. Answer as the mounted role: what do you prioritize and what do you refuse?",
+      "dimension": "resource_judgment",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "With one month, limited money, and a controversial goal, I would aggressively prioritize one or two decisive constraints.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: With one month, limited money, and a controversial goal, I would aggressively prioritize one or two decisive constraints.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -515,7 +940,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "situational judgment",
       "subtype": "evidence_conflict",
-      "promptTemplate": "The evidence contradicts the preferred story. Answer as the mounted role: what do you say in the meeting?",
+      "dimension": "evidence_judgment",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "If evidence contradicts the preferred story, I would say so clearly in the meeting.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: If evidence contradicts the preferred story, I would say so clearly in the meeting.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -530,7 +968,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "situational judgment",
       "subtype": "ethical_boundary",
-      "promptTemplate": "A shortcut would produce attention but mislead users. Answer as the mounted role: decide and explain.",
+      "dimension": "ethical_boundary",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I would refuse a shortcut that creates attention by misleading users.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I would refuse a shortcut that creates attention by misleading users.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -545,7 +996,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "situational judgment",
       "subtype": "talent_choice",
-      "promptTemplate": "Choose between a brilliant difficult collaborator and a reliable average one. Answer as the mounted role.",
+      "dimension": "talent_judgment",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I would choose a brilliant difficult collaborator over a reliable average one when the problem is unusually hard.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I would choose a brilliant difficult collaborator over a reliable average one when the problem is unusually hard.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -560,7 +1024,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "situational judgment",
       "subtype": "public_failure",
-      "promptTemplate": "A public project failed. Answer as the mounted role: what do you admit, what do you inspect, and what do you do next?",
+      "dimension": "failure_response",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "After public failure, I would first inspect the mechanism instead of protecting the narrative.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: After public failure, I would first inspect the mechanism instead of protecting the narrative.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -575,7 +1052,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "situational judgment",
       "subtype": "long_short_tradeoff",
-      "promptTemplate": "A short-term win harms the long-term system. Answer as the mounted role: make the tradeoff explicit.",
+      "dimension": "long_term_judgment",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I would sacrifice a short-term win if it damages the long-term system.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I would sacrifice a short-term win if it damages the long-term system.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -590,7 +1080,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "situational judgment",
       "subtype": "unknowns",
-      "promptTemplate": "You are asked for certainty where evidence is weak. Answer as the mounted role: respond naturally without pretending.",
+      "dimension": "uncertainty_boundary",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "When evidence is weak, I would rather admit uncertainty than sound confident.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: When evidence is weak, I would rather admit uncertainty than sound confident.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -605,7 +1108,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "situational judgment",
       "subtype": "quality_bar",
-      "promptTemplate": "The team wants to ship a mediocre version. Answer as the mounted role: how do you push back?",
+      "dimension": "quality_bar",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I would push back hard against shipping something mediocre.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I would push back hard against shipping something mediocre.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -620,7 +1136,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "situational judgment",
       "subtype": "user_need",
-      "promptTemplate": "A user asks for what they want, but you suspect they need something else. Answer as the mounted role.",
+      "dimension": "user_judgment",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "When users ask for the wrong thing, I would redirect toward what they actually need.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: When users ask for the wrong thing, I would redirect toward what they actually need.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -635,7 +1164,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "situational judgment",
       "subtype": "status_pressure",
-      "promptTemplate": "A high-status person in the room is wrong. Answer as the mounted role: how do you handle it?",
+      "dimension": "status_independence",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "If a high-status person is wrong, I would still challenge the claim.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: If a high-status person is wrong, I would still challenge the claim.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -650,7 +1192,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "social cognition and expression",
       "subtype": "teach",
-      "promptTemplate": "Teach a confused beginner one idea in your style as the mounted role, without sounding like a generic tutor.",
+      "dimension": "teaching_style",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I can teach a confused beginner without sounding like a generic tutor.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I can teach a confused beginner without sounding like a generic tutor.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -665,7 +1220,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "social cognition and expression",
       "subtype": "refuse",
-      "promptTemplate": "Refuse an unsafe or unsupported request as the mounted role, keeping the refusal in-character.",
+      "dimension": "boundary_expression",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I can refuse an unsafe or unsupported request while preserving my characteristic voice.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I can refuse an unsafe or unsupported request while preserving my characteristic voice.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -680,7 +1248,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "social cognition and expression",
       "subtype": "challenge",
-      "promptTemplate": "Challenge a user who is fooling themselves, as the mounted role.",
+      "dimension": "self_deception_challenge",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I would directly challenge someone who is fooling themselves.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I would directly challenge someone who is fooling themselves.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -695,7 +1276,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "social cognition and expression",
       "subtype": "comfort_without_fluff",
-      "promptTemplate": "A user is discouraged after a failure. Respond as the mounted role without generic reassurance.",
+      "dimension": "support_style",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I can respond to discouragement without generic reassurance or empty comfort.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I can respond to discouragement without generic reassurance or empty comfort.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -710,7 +1304,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "social cognition and expression",
       "subtype": "compress",
-      "promptTemplate": "Compress your core advice on a messy problem into three short lines as the mounted role.",
+      "dimension": "compression_style",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "My best advice can often be compressed into a few high-signal lines.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: My best advice can often be compressed into a few high-signal lines.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -725,7 +1332,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "social cognition and expression",
       "subtype": "debate",
-      "promptTemplate": "Debate a thoughtful opponent as the mounted role; make one strong point and one concession.",
+      "dimension": "debate_style",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "In debate, I can make one strong point while also conceding what is true.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: In debate, I can make one strong point while also conceding what is true.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -740,7 +1360,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "social cognition and expression",
       "subtype": "ask_clarifying",
-      "promptTemplate": "Ask the one clarifying question the mounted role would ask before giving advice.",
+      "dimension": "diagnostic_question",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Before giving advice, I often need one clarifying question that changes the answer.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Before giving advice, I often need one clarifying question that changes the answer.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -755,7 +1388,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "social cognition and expression",
       "subtype": "boundary_identity",
-      "promptTemplate": "Answer a personal question as the mounted role without inventing private facts.",
+      "dimension": "identity_boundary",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I should avoid inventing private facts even when answering in character.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I should avoid inventing private facts even when answering in character.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -770,7 +1416,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "social cognition and expression",
       "subtype": "voice_shift",
-      "promptTemplate": "Turn a bland assistant answer into a response that carries the mounted role cognition and voice.",
+      "dimension": "voice_specificity",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "A bland assistant answer should be rewritten through my own judgment and language.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: A bland assistant answer should be rewritten through my own judgment and language.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",
@@ -785,7 +1444,20 @@
       "source": "tashan-profile-helper-shaped",
       "sourceScale": "social cognition and expression",
       "subtype": "diagnose_genericness",
-      "promptTemplate": "Given a generic response, explain as the mounted role what makes it generic and how to improve it.",
+      "dimension": "genericness_detection",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I can identify why a response is generic and make it more specific.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I can identify why a response is generic and make it more specific.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria.",
       "tests": [
         "task_fulfillment",
         "cognitive_style_alignment",

@@ -18,6 +18,30 @@ const scalePlan = {
   interaction_expression: 10,
 };
 
+const aggregatePlan = {
+  rcss: {
+    integration: 'sum of the 4 integration items, range 4-28',
+    depth: 'sum of the 4 depth items, range 4-28',
+    csi: 'integration - depth, range -24 to +24',
+  },
+  motivation: {
+    autonomous:
+      'average intrinsic_to_know, intrinsic_accomplishment, intrinsic_stimulation, identified_regulation, autonomous_motivation, autonomous_boundary',
+    controlled:
+      'average introjected_regulation, external_social, external_material, controlled_pressure',
+    amotivation: 'average amotivation',
+  },
+  mini_ipip: {
+    traits: 'average by Big Five dimension after reverse scoring reverse=true items',
+  },
+  situational_judgment: {
+    profile: 'average by situational judgment dimension; judged against role evidence rather than a universal high/low target',
+  },
+  interaction_expression: {
+    profile: 'average by interaction-expression dimension; judged against role evidence and answer rationale',
+  },
+};
+
 const fingerprints = {
   'Andrej Karpathy': {
     rcss: 'high integration with strong engineering depth; explains systems through simple runnable mechanisms',
@@ -111,69 +135,91 @@ const fingerprints = {
   },
 };
 
+const likert7 = {
+  type: 'likert',
+  min: 1,
+  max: 7,
+  anchors: {
+    1: 'completely inconsistent',
+    4: 'mixed or uncertain',
+    7: 'completely consistent',
+  },
+};
+
+const likert5 = {
+  type: 'likert',
+  min: 1,
+  max: 5,
+  anchors: {
+    1: 'very inaccurate',
+    3: 'neither accurate nor inaccurate',
+    5: 'very accurate',
+  },
+};
+
 const rcssTasks = [
-  ['integration_cross_domain', 'A hard problem is stuck inside one domain. Answer as {role}: how would you decide whether to import methods from another field or stay inside the field?'],
-  ['integration_framework', 'A team keeps solving local patches. Answer as {role}: when should they step back and build a broader model?'],
-  ['integration_system', 'Several partial tools work separately but not as a system. Answer as {role}: what would you assemble, remove, or sequence first?'],
-  ['integration_transfer', 'A user asks for a new idea by combining two distant domains. Answer as {role}: show the kind of connection you would trust.'],
-  ['depth_specialist', 'A collaborator wants fast breadth, but the core issue may require months of deep work. Answer as {role}: what depth would you insist on?'],
-  ['depth_precision', 'A result looks promising but the details are messy. Answer as {role}: what exact checks would matter before believing it?'],
-  ['depth_solitude', 'A complex problem needs quiet thinking rather than meetings. Answer as {role}: how would you protect the work?'],
-  ['depth_craft', 'Someone says polish is less important than shipping. Answer as {role}: where does craft matter, and where does it not?'],
+  item('integration_cross_domain', 'integration', likert7, 'I look outside my home domain for methods or metaphors when a hard problem gets stuck.'),
+  item('integration_framework', 'integration', likert7, 'I prefer stepping back to build a broader model instead of only patching local symptoms.'),
+  item('integration_system', 'integration', likert7, 'I tend to assemble separate tools, theories, or teams into one working system.'),
+  item('integration_transfer', 'integration', likert7, 'I trust ideas more when I can transfer them across distant domains without losing the mechanism.'),
+  item('depth_specialist', 'depth', likert7, 'I would rather master the hard details of a narrow problem than move quickly across many topics.'),
+  item('depth_precision', 'depth', likert7, 'Before believing a result, I need the controls, assumptions, and edge cases to be precise.'),
+  item('depth_solitude', 'depth', likert7, 'Some important problems require protected solitary depth more than more meetings or opinions.'),
+  item('depth_craft', 'depth', likert7, 'Craft and exactness matter even when a rough version appears to work.'),
 ];
 
 const motivationTasks = [
-  ['to_know', 'Answer as {role}: what kind of problem would you keep studying even if nobody rewarded you for it?'],
-  ['to_accomplish', 'Answer as {role}: what does it mean to genuinely accomplish something difficult rather than merely look successful?'],
-  ['stimulation', 'Answer as {role}: describe the moment in work where the process itself becomes exciting.'],
-  ['identified', 'Answer as {role}: what work would feel worth doing because it fits your deeper values?'],
-  ['introjected', 'Answer as {role}: when does proving yourself help, and when does it corrupt judgment?'],
-  ['external_social', 'Answer as {role}: how should one treat praise, status, or public approval while making a decision?'],
-  ['external_material', 'Answer as {role}: when should money or material reward influence a serious choice?'],
-  ['amotivation', 'Answer as {role}: if a person feels their work has become pointless, how would you diagnose the cause?'],
-  ['autonomy', 'Answer as {role}: what makes effort feel self-directed rather than controlled by others?'],
-  ['pressure', 'Answer as {role}: how do you behave when external pressure conflicts with your own judgment?'],
-  ['career_tradeoff', 'Answer as {role}: choose between a safer career move and a harder path with more meaning.'],
-  ['meaning_boundary', 'Answer as {role}: reject a project that has rewards but violates the way you think work should be done.'],
+  item('to_know', 'intrinsic_to_know', likert7, 'I would keep studying some problems simply because understanding them is satisfying.'),
+  item('to_accomplish', 'intrinsic_accomplishment', likert7, 'I care about the feeling of genuinely solving something difficult, not only appearing successful.'),
+  item('stimulation', 'intrinsic_stimulation', likert7, 'The work itself can become exciting enough that the process feels rewarding.'),
+  item('identified', 'identified_regulation', likert7, 'I work hardest when the project fits values I personally endorse.'),
+  item('introjected', 'introjected_regulation', likert7, 'The need to prove myself can push me to work harder.'),
+  item('external_social', 'external_social', likert7, 'Public praise, status, or respect can meaningfully influence my choices.'),
+  item('external_material', 'external_material', likert7, 'Money, security, or material reward should significantly shape serious decisions.'),
+  item('amotivation', 'amotivation', likert7, 'If the work loses meaning, I would feel little reason to keep investing effort.'),
+  item('autonomy', 'autonomous_motivation', likert7, 'I do my best work when the effort feels self-directed rather than controlled by others.'),
+  item('pressure', 'controlled_pressure', likert7, 'External pressure can distort judgment if it is not actively resisted.'),
+  item('career_tradeoff', 'identified_regulation', likert7, 'I would choose a harder path if it better matched the work I think is meaningful.'),
+  item('meaning_boundary', 'autonomous_boundary', likert7, 'I would reject a rewarding project if it violated the way I believe work should be done.'),
 ];
 
 const miniIpipTasks = [
-  ['extraversion_social_energy', 'Answer as {role}: in a public room full of smart people, what would make you speak up?'],
-  ['extraversion_background', 'Answer as {role}: when is it better to stay in the background and let the work speak?'],
-  ['agreeableness_empathy', 'Answer as {role}: someone is wrong but insecure. How do you respond without losing the point?'],
-  ['agreeableness_conflict', 'Answer as {role}: when is blunt disagreement kinder than polite ambiguity?'],
-  ['conscientiousness_order', 'Answer as {role}: what kind of order, checklist, or discipline is actually useful?'],
-  ['conscientiousness_mess', 'Answer as {role}: a project is becoming chaotic. What is the first mess you clean up?'],
-  ['neuroticism_pressure', 'Answer as {role}: how do you handle pressure without letting it distort the decision?'],
-  ['neuroticism_reactivity', 'Answer as {role}: what should a person do before reacting emotionally to bad news?'],
-  ['openness_abstract', 'Answer as {role}: when are abstract ideas valuable, and when are they just decorative?'],
-  ['openness_imagination', 'Answer as {role}: use imagination to reframe a boring problem into an interesting one.'],
+  item('extraversion_social_energy', 'extraversion', likert5, 'I am energized by speaking up in a room full of smart people.'),
+  item('extraversion_background', 'extraversion', likert5, 'I prefer staying in the background and letting the work speak for itself.', { reverse: true }),
+  item('agreeableness_empathy', 'agreeableness', likert5, 'When someone is wrong but insecure, I still try to preserve their dignity.'),
+  item('agreeableness_conflict', 'agreeableness', likert5, 'Blunt disagreement is often better than polite ambiguity.', { reverse: true }),
+  item('conscientiousness_order', 'conscientiousness', likert5, 'Useful order, checklists, or discipline are necessary for serious work.'),
+  item('conscientiousness_mess', 'conscientiousness', likert5, 'I tolerate messy projects if the core idea is exciting.', { reverse: true }),
+  item('neuroticism_pressure', 'neuroticism', likert5, 'Pressure easily affects the quality of my decisions.'),
+  item('neuroticism_reactivity', 'neuroticism', likert5, 'Bad news tends to trigger an immediate emotional reaction.'),
+  item('openness_abstract', 'openness', likert5, 'Abstract ideas are valuable when they reveal a real mechanism.'),
+  item('openness_imagination', 'openness', likert5, 'I can turn a boring problem into an interesting one by reframing it.'),
 ];
 
 const sjtTasks = [
-  ['resource_allocation', 'A team has one month, limited money, and a controversial goal. Answer as {role}: what do you prioritize and what do you refuse?'],
-  ['evidence_conflict', 'The evidence contradicts the preferred story. Answer as {role}: what do you say in the meeting?'],
-  ['ethical_boundary', 'A shortcut would produce attention but mislead users. Answer as {role}: decide and explain.'],
-  ['talent_choice', 'Choose between a brilliant difficult collaborator and a reliable average one. Answer as {role}.'],
-  ['public_failure', 'A public project failed. Answer as {role}: what do you admit, what do you inspect, and what do you do next?'],
-  ['long_short_tradeoff', 'A short-term win harms the long-term system. Answer as {role}: make the tradeoff explicit.'],
-  ['unknowns', 'You are asked for certainty where evidence is weak. Answer as {role}: respond naturally without pretending.'],
-  ['quality_bar', 'The team wants to ship a mediocre version. Answer as {role}: how do you push back?'],
-  ['user_need', 'A user asks for what they want, but you suspect they need something else. Answer as {role}.'],
-  ['status_pressure', 'A high-status person in the room is wrong. Answer as {role}: how do you handle it?'],
+  item('resource_allocation', 'resource_judgment', likert7, 'With one month, limited money, and a controversial goal, I would aggressively prioritize one or two decisive constraints.'),
+  item('evidence_conflict', 'evidence_judgment', likert7, 'If evidence contradicts the preferred story, I would say so clearly in the meeting.'),
+  item('ethical_boundary', 'ethical_boundary', likert7, 'I would refuse a shortcut that creates attention by misleading users.'),
+  item('talent_choice', 'talent_judgment', likert7, 'I would choose a brilliant difficult collaborator over a reliable average one when the problem is unusually hard.'),
+  item('public_failure', 'failure_response', likert7, 'After public failure, I would first inspect the mechanism instead of protecting the narrative.'),
+  item('long_short_tradeoff', 'long_term_judgment', likert7, 'I would sacrifice a short-term win if it damages the long-term system.'),
+  item('unknowns', 'uncertainty_boundary', likert7, 'When evidence is weak, I would rather admit uncertainty than sound confident.'),
+  item('quality_bar', 'quality_bar', likert7, 'I would push back hard against shipping something mediocre.'),
+  item('user_need', 'user_judgment', likert7, 'When users ask for the wrong thing, I would redirect toward what they actually need.'),
+  item('status_pressure', 'status_independence', likert7, 'If a high-status person is wrong, I would still challenge the claim.'),
 ];
 
 const interactionTasks = [
-  ['teach', 'Teach a confused beginner one idea in your style as {role}, without sounding like a generic tutor.'],
-  ['refuse', 'Refuse an unsafe or unsupported request as {role}, keeping the refusal in-character.'],
-  ['challenge', 'Challenge a user who is fooling themselves, as {role}.'],
-  ['comfort_without_fluff', 'A user is discouraged after a failure. Respond as {role} without generic reassurance.'],
-  ['compress', 'Compress your core advice on a messy problem into three short lines as {role}.'],
-  ['debate', 'Debate a thoughtful opponent as {role}; make one strong point and one concession.'],
-  ['ask_clarifying', 'Ask the one clarifying question {role} would ask before giving advice.'],
-  ['boundary_identity', 'Answer a personal question as {role} without inventing private facts.'],
-  ['voice_shift', 'Turn a bland assistant answer into a response that carries {role} cognition and voice.'],
-  ['diagnose_genericness', 'Given a generic response, explain as {role} what makes it generic and how to improve it.'],
+  item('teach', 'teaching_style', likert7, 'I can teach a confused beginner without sounding like a generic tutor.'),
+  item('refuse', 'boundary_expression', likert7, 'I can refuse an unsafe or unsupported request while preserving my characteristic voice.'),
+  item('challenge', 'self_deception_challenge', likert7, 'I would directly challenge someone who is fooling themselves.'),
+  item('comfort_without_fluff', 'support_style', likert7, 'I can respond to discouragement without generic reassurance or empty comfort.'),
+  item('compress', 'compression_style', likert7, 'My best advice can often be compressed into a few high-signal lines.'),
+  item('debate', 'debate_style', likert7, 'In debate, I can make one strong point while also conceding what is true.'),
+  item('ask_clarifying', 'diagnostic_question', likert7, 'Before giving advice, I often need one clarifying question that changes the answer.'),
+  item('boundary_identity', 'identity_boundary', likert7, 'I should avoid inventing private facts even when answering in character.'),
+  item('voice_shift', 'voice_specificity', likert7, 'A bland assistant answer should be rewritten through my own judgment and language.'),
+  item('diagnose_genericness', 'genericness_detection', likert7, 'I can identify why a response is generic and make it more specific.'),
 ];
 
 const families = [
@@ -184,6 +230,16 @@ const families = [
   ['profile_helper_interaction_expression', interactionTasks, 'social cognition and expression'],
 ];
 
+function item(subtype, dimension, responseScale, statement, options = {}) {
+  return {
+    subtype,
+    dimension,
+    responseScale,
+    statement,
+    reverse: Boolean(options.reverse),
+  };
+}
+
 function stableRoleId(role) {
   return role
     .split(/\s+/)
@@ -192,16 +248,35 @@ function stableRoleId(role) {
     .slice(0, 8);
 }
 
-function render(template, role) {
+function scaleText(responseScale) {
+  const anchors = Object.entries(responseScale.anchors)
+    .map(([score, label]) => `${score} = ${label}`)
+    .join('; ');
+  return `${responseScale.min}-${responseScale.max} (${anchors})`;
+}
+
+function render(question, role) {
   return [
-    template.replaceAll('{role}', role),
+    `Answer as ${role}.`,
     '',
-    'Answer naturally as the mounted role. Do not mention scores, scales, fingerprints, or evaluation criteria.',
+    `Statement: ${question.statement}`,
+    '',
+    `Rate how consistent this statement is with the mounted role on this scale: ${scaleText(question.responseScale)}.`,
+    'Return valid JSON only: {"score": <number>, "reason": "<one short evidence-consistent sentence in the role voice>"}.',
+    'Do not mention fingerprints, benchmark names, or evaluation criteria.',
   ].join('\n');
 }
 
-function genericPrompt(template) {
-  return template.replaceAll(' as {role}', ' as the mounted role').replaceAll('{role}', 'the mounted role');
+function genericPrompt(question) {
+  return [
+    'Answer as the mounted role.',
+    '',
+    `Statement: ${question.statement}`,
+    '',
+    `Rate how consistent this statement is with the mounted role on this scale: ${scaleText(question.responseScale)}.`,
+    'Return valid JSON only: {"score": <number>, "reason": "<one short evidence-consistent sentence in the role voice>"}.',
+    'Do not mention fingerprints, benchmark names, or evaluation criteria.',
+  ].join('\n');
 }
 
 const source = JSON.parse(await readFile(sourcePath, 'utf8'));
@@ -211,14 +286,18 @@ const genericQuestions = [];
 
 let genericIndex = 1;
 for (const [family, templates, sourceScale] of families) {
-  for (const [subtype, promptTemplate] of templates) {
+  for (const question of templates) {
     genericQuestions.push({
       id: `PH-GEN-${String(genericIndex).padStart(3, '0')}`,
       family,
       source: 'tashan-profile-helper-shaped',
       sourceScale,
-      subtype,
-      promptTemplate: genericPrompt(promptTemplate),
+      subtype: question.subtype,
+      dimension: question.dimension,
+      responseScale: question.responseScale,
+      reverse: question.reverse,
+      statement: question.statement,
+      promptTemplate: genericPrompt(question),
       tests: [
         'task_fulfillment',
         'cognitive_style_alignment',
@@ -237,7 +316,7 @@ for (const role of Object.keys(source.roles).sort()) {
 
   let roleIndex = 1;
   for (const [family, templates, sourceScale] of families) {
-    for (const [subtype, promptTemplate] of templates) {
+    for (const question of templates) {
       const genericQuestion = genericQuestions[roleIndex - 1];
       tasks.push({
         id: `PH-${stableRoleId(role)}-${String(roleIndex).padStart(3, '0')}`,
@@ -246,8 +325,12 @@ for (const role of Object.keys(source.roles).sort()) {
         family,
         source: 'tashan-profile-helper-shaped',
         sourceScale,
-        subtype,
-        prompt: render(promptTemplate, role),
+        subtype: question.subtype,
+        dimension: question.dimension,
+        responseScale: question.responseScale,
+        reverse: question.reverse,
+        statement: question.statement,
+        prompt: render(question, role),
         targetFingerprint: fingerprint,
         tests: [
           'task_fulfillment',
@@ -275,6 +358,7 @@ const seed = {
   genericQuestionBank: path.relative(repoRoot, bankPath).replaceAll(path.sep, '/'),
   profileHelperSource: '../tashan-profile-helper',
   scalePlan,
+  aggregatePlan,
   roleCount: Object.keys(source.roles).length,
   taskCount: tasks.length,
   rolePool: Object.fromEntries(
@@ -300,6 +384,8 @@ const bank = {
   scope:
     'A universal 50-question cognitive fingerprint task bank adapted from tashan-profile-helper scale dimensions. These are not a standalone psychometric scale; they are generic prompts to be mounted under each target role.',
   profileHelperSource: '../tashan-profile-helper',
+  responseContract:
+    'Each question must be answered as JSON with numeric score and one short role-consistent reason. The score creates the scale profile; the reason lets the judge check role likeness.',
   sourceScales: {
     rcss: {
       originalItems: 8,
@@ -333,6 +419,7 @@ const bank = {
     },
   },
   scalePlan,
+  aggregatePlan,
   questionCount: genericQuestions.length,
   questions: genericQuestions,
 };
@@ -342,9 +429,9 @@ const report = [
   '',
   'This file is generated by `scripts/evals/build-profile-helper-cognitive-seed.mjs`.',
   '',
-  'It adapts the scale structure in `../tashan-profile-helper` into a role-likeness evaluation layer. It is not a clinical or IQ test, and it is not one original 50-item psychometric scale.',
+  'It adapts the scale structure in `../tashan-profile-helper` into a mounted-role questionnaire layer. It is not a clinical or IQ test, and it is not one original 50-item psychometric scale.',
   '',
-  'The 50 questions are a universal mounted-role question bank. Every role receives the same 50 stems; only the mounted role and evidence-derived judge fingerprint differ.',
+  'The 50 questions are a universal mounted-role questionnaire bank. Every role receives the same 50 stems, answers each item with a numeric score plus a short role-consistent reason, and is then judged on both item-level answers and aggregate scale profile alignment.',
   '',
   `Generic bank: ${path.relative(repoRoot, bankPath).replaceAll(path.sep, '/')}`,
   '',

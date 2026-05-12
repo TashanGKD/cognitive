@@ -271,6 +271,16 @@ function buildAnswerMessages({ systemId, artifact, task }) {
   ];
 }
 
+function taskScaleMeta(task) {
+  return {
+    genericQuestionId: task.genericQuestionId ?? null,
+    dimension: task.dimension ?? null,
+    responseScale: task.responseScale ?? null,
+    reverse: task.reverse ?? false,
+    statement: task.statement ?? null,
+  };
+}
+
 async function judgeTask({ task, evidence, answerX, answerY }) {
   const fingerprintBlock = task.targetFingerprint
     ? [
@@ -540,6 +550,7 @@ for (const task of tasks) {
   if (dryRun) {
     records.push({
       taskId: task.id,
+      taskMeta: taskScaleMeta(task),
       role: task.role ?? null,
       family: task.family,
       source: task.source ?? null,
@@ -577,6 +588,7 @@ for (const task of tasks) {
   });
   records.push({
     taskId: task.id,
+    taskMeta: taskScaleMeta(task),
     role: task.role ?? null,
     family: task.family,
     source: task.source ?? null,

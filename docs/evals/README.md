@@ -63,8 +63,17 @@ The profile-helper seed adapts the scale structure in
 original 50-item psychometric scale. The source repository contains RCSS
 (8 items), AMS-GSR (28 items), Mini-IPIP (20 items), and MWMS (19 items).
 
-The 50-question asset here is a universal question bank mounted under each
-target role:
+The 50-question asset here is a universal questionnaire bank mounted under each
+target role. Every item asks the mounted model to return JSON with a numeric
+score and a one-sentence role-consistent reason:
+
+```json
+{"score": 1, "reason": "short role-consistent reason"}
+```
+
+The numeric answers are aggregated into a scale profile; the reasons and the
+aggregate profile are then judged against the evidence-derived target
+fingerprint.
 
 - `profile_helper_rcss`: cognitive style, horizontal integration versus
   vertical depth.
