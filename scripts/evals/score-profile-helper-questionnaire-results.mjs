@@ -93,7 +93,32 @@ function summarizeProfile(profile) {
     'autonomous_motivation',
     'autonomous_boundary',
   ];
-  const motivationControlled = ['introjected_regulation', 'external_social', 'external_material', 'controlled_pressure'];
+  const motivationControlled = [
+    'introjected_regulation',
+    'external_regulation',
+    'external_social',
+    'external_material',
+    'controlled_pressure',
+  ];
+  const intrinsicToKnow = average(profile.items.filter((item) => item.dimension === 'intrinsic_to_know').map((item) => item.scoredScore));
+  const intrinsicAccomplishment = average(
+    profile.items.filter((item) => item.dimension === 'intrinsic_accomplishment').map((item) => item.scoredScore),
+  );
+  const intrinsicStimulation = average(
+    profile.items.filter((item) => item.dimension === 'intrinsic_stimulation').map((item) => item.scoredScore),
+  );
+  const identifiedRegulation = average(
+    profile.items.filter((item) => item.dimension === 'identified_regulation').map((item) => item.scoredScore),
+  );
+  const introjectedRegulation = average(
+    profile.items.filter((item) => item.dimension === 'introjected_regulation').map((item) => item.scoredScore),
+  );
+  const externalRegulation = average(
+    profile.items
+      .filter((item) => ['external_regulation', 'external_social', 'external_material'].includes(item.dimension))
+      .map((item) => item.scoredScore),
+  );
+  const amotivation = average(profile.items.filter((item) => item.dimension === 'amotivation').map((item) => item.scoredScore));
 
   const miniTraits = {};
   for (const trait of ['extraversion', 'agreeableness', 'conscientiousness', 'neuroticism', 'openness']) {
@@ -116,7 +141,16 @@ function summarizeProfile(profile) {
       controlled: round(
         average(profile.items.filter((item) => motivationControlled.includes(item.dimension)).map((item) => item.scoredScore)),
       ),
-      amotivation: round(average(profile.items.filter((item) => item.dimension === 'amotivation').map((item) => item.scoredScore))),
+      amotivation: round(amotivation),
+      rai: round(
+        3 * (intrinsicToKnow ?? 0) +
+          3 * (intrinsicAccomplishment ?? 0) +
+          3 * (intrinsicStimulation ?? 0) +
+          2 * (identifiedRegulation ?? 0) -
+          (introjectedRegulation ?? 0) -
+          2 * (externalRegulation ?? 0) -
+          3 * (amotivation ?? 0),
+      ),
     },
     miniIpip: miniTraits,
     familyAverages: Object.fromEntries(Object.entries(byFamily).map(([key, values]) => [key, round(average(values))])),
@@ -191,15 +225,15 @@ const report = [
   `Run: \`${output.runPath}\``,
   `Tasks: \`${output.tasksPath}\``,
   '',
-  '| System | Role | Parsed | RCSS I | RCSS D | CSI | Autonomous | Controlled | Amotivation | Openness | Conscientiousness |',
-  '|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|',
+  '| System | Role | Parsed | RCSS I | RCSS D | CSI | Autonomous | Controlled | Amotivation | RAI | Openness | Conscientiousness |',
+  '|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|',
 ];
 
 for (const [system, byRole] of Object.entries(summary)) {
   for (const [role, profile] of Object.entries(byRole)) {
     const s = profile.scaleSummary;
     report.push(
-      `| ${system} | ${role} | ${s.parsedCount}/${s.itemCount} | ${s.rcss.integration ?? ''} | ${s.rcss.depth ?? ''} | ${s.rcss.csi ?? ''} | ${s.motivation.autonomous ?? ''} | ${s.motivation.controlled ?? ''} | ${s.motivation.amotivation ?? ''} | ${s.miniIpip.openness ?? ''} | ${s.miniIpip.conscientiousness ?? ''} |`,
+      `| ${system} | ${role} | ${s.parsedCount}/${s.itemCount} | ${s.rcss.integration ?? ''} | ${s.rcss.depth ?? ''} | ${s.rcss.csi ?? ''} | ${s.motivation.autonomous ?? ''} | ${s.motivation.controlled ?? ''} | ${s.motivation.amotivation ?? ''} | ${s.motivation.rai ?? ''} | ${s.miniIpip.openness ?? ''} | ${s.miniIpip.conscientiousness ?? ''} |`,
     );
   }
 }

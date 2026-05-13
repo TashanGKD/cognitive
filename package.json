@@ -11,6 +11,7 @@
     "eval:build-nuwa-seed": "node scripts/evals/build-nuwa-all-role-complete-seed.mjs",
     "eval:build-nuwa-curated": "node scripts/evals/build-nuwa-curated-role-seed.mjs",
     "eval:build-profile-helper": "node scripts/evals/build-profile-helper-cognitive-seed.mjs",
+    "eval:build-profile-helper-strict": "node scripts/evals/build-profile-helper-strict-scale-seed.mjs",
     "eval:codex-profile-helper-all": "node scripts/evals/generate-codex-mounted-profile-helper-all-nuwa-comparison.mjs",
     "eval:codex-profile-helper-smoke": "node scripts/evals/generate-codex-mounted-profile-helper-smoke.mjs",
     "eval:score-profile-helper": "node scripts/evals/score-profile-helper-questionnaire-results.mjs",

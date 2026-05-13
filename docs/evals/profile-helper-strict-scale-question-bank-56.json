@@ -1,0 +1,1200 @@
+{
+  "version": "2026-05-13",
+  "name": "profile-helper-strict-scale-question-bank-56",
+  "scope": "A universal strict scale bank copied from the original profile-helper scale structure: RCSS 8, AMS-GSR 28, Mini-IPIP 20. All mounted roles receive exactly the same items.",
+  "profileHelperSource": "../tashan-profile-helper",
+  "responseContract": "Each mounted role answers each item as JSON with a numeric score and one short role-consistent reason. Scores are used for scale-profile consistency; reasons are judged for role likeness.",
+  "sourceScales": {
+    "rcss": {
+      "originalItems": 8,
+      "includedItems": 8
+    },
+    "ams_gsr": {
+      "originalItems": 28,
+      "includedItems": 28
+    },
+    "mini_ipip": {
+      "originalItems": 20,
+      "includedItems": 20
+    }
+  },
+  "questionCount": 56,
+  "questions": [
+    {
+      "id": "PH-SCALE-001",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "RCSS",
+      "sourceItemId": "A1",
+      "dimension": "integration",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I habitually look for reusable ideas or methods in fields outside my home specialty.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I habitually look for reusable ideas or methods in fields outside my home specialty.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-002",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "RCSS",
+      "sourceItemId": "A2",
+      "dimension": "integration",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "When facing a research obstacle, I tend to step back and build a broader, more general model.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: When facing a research obstacle, I tend to step back and build a broader, more general model.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-003",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "RCSS",
+      "sourceItemId": "A3",
+      "dimension": "integration",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Cross-domain connection ability is rarer and more important than single-field depth in modern knowledge work.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Cross-domain connection ability is rarer and more important than single-field depth in modern knowledge work.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-004",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "RCSS",
+      "sourceItemId": "A4",
+      "dimension": "integration",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I tend to assemble different algorithms, models, or theories into one complete system or solution.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I tend to assemble different algorithms, models, or theories into one complete system or solution.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-005",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "RCSS",
+      "sourceItemId": "B1",
+      "dimension": "depth",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I prefer to go deep in one vertical niche and become the person with the most precise command of the details.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I prefer to go deep in one vertical niche and become the person with the most precise command of the details.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-006",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "RCSS",
+      "sourceItemId": "B2",
+      "dimension": "depth",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I prefer extreme tuning, modeling, or verification around one concrete model, dataset, or phenomenon.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I prefer extreme tuning, modeling, or verification around one concrete model, dataset, or phenomenon.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-007",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "RCSS",
+      "sourceItemId": "B3",
+      "dimension": "depth",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I prefer quiet solitary work on complex derivations, code details, or experiments over frequent high-level discussion.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I prefer quiet solitary work on complex derivations, code details, or experiments over frequent high-level discussion.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-008",
+      "family": "profile_helper_rcss",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "RCSS",
+      "sourceItemId": "B4",
+      "dimension": "depth",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Taking one technical detail to the highest craft standard is one of the highest virtues of serious work.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Taking one technical detail to the highest craft standard is one of the highest virtues of serious work.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-009",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "1",
+      "dimension": "external_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Because without a stronger credential, I would have fewer high-paying opportunities later on.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Because without a stronger credential, I would have fewer high-paying opportunities later on.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-010",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "2",
+      "dimension": "intrinsic_to_know",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Because learning new things in my field gives me pleasure and satisfaction.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Because learning new things in my field gives me pleasure and satisfaction.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-011",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "3",
+      "dimension": "identified_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Because advanced study or research helps prepare me for the career I have chosen.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Because advanced study or research helps prepare me for the career I have chosen.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-012",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "4",
+      "dimension": "intrinsic_stimulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Because communicating my own ideas to others can create intense positive feelings.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Because communicating my own ideas to others can create intense positive feelings.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-013",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "5",
+      "dimension": "amotivation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Honestly, I sometimes cannot see the point and feel I am wasting my time.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Honestly, I sometimes cannot see the point and feel I am wasting my time.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-014",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "6",
+      "dimension": "intrinsic_accomplishment",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Because surpassing myself in serious work is pleasurable.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Because surpassing myself in serious work is pleasurable.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-015",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "7",
+      "dimension": "introjected_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "To prove to myself that I am capable of completing the path I chose.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: To prove to myself that I am capable of completing the path I chose.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-016",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "8",
+      "dimension": "external_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "In order to obtain a more prestigious position later on.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: In order to obtain a more prestigious position later on.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-017",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "9",
+      "dimension": "intrinsic_to_know",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "For the pleasure I experience when I discover new phenomena or ideas I had not seen before.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: For the pleasure I experience when I discover new phenomena or ideas I had not seen before.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-018",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "10",
+      "dimension": "identified_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Because it can eventually let me enter a field of work that I like.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Because it can eventually let me enter a field of work that I like.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-019",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "11",
+      "dimension": "intrinsic_stimulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "For the pleasure I experience when reading interesting papers, books, or deep technical material.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: For the pleasure I experience when reading interesting papers, books, or deep technical material.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-020",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "12",
+      "dimension": "amotivation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I once had reasons for this path, but now I sometimes wonder whether I should continue.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I once had reasons for this path, but now I sometimes wonder whether I should continue.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-021",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "13",
+      "dimension": "intrinsic_accomplishment",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "For the happiness I experience when I exceed myself in achievement.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: For the happiness I experience when I exceed myself in achievement.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-022",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "14",
+      "dimension": "introjected_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Because when I succeed, I feel important.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Because when I succeed, I feel important.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-023",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "15",
+      "dimension": "external_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Because I want to have a better life later on.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Because I want to have a better life later on.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-024",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "16",
+      "dimension": "intrinsic_to_know",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "For the pleasure of broadening my knowledge about topics that appeal to me.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: For the pleasure of broadening my knowledge about topics that appeal to me.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-025",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "17",
+      "dimension": "identified_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Because it helps me make better choices about direction and career orientation.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Because it helps me make better choices about direction and career orientation.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-026",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "18",
+      "dimension": "intrinsic_stimulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "For the pleasure I feel when completely absorbed by what strong thinkers have written or built.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: For the pleasure I feel when completely absorbed by what strong thinkers have written or built.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-027",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "19",
+      "dimension": "amotivation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I cannot see why I am doing this work and frankly could care very little about it.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I cannot see why I am doing this work and frankly could care very little about it.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-028",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "20",
+      "dimension": "intrinsic_accomplishment",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "For the satisfaction I feel while accomplishing difficult work.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: For the satisfaction I feel while accomplishing difficult work.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-029",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "21",
+      "dimension": "introjected_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "To show myself that I am intelligent and capable.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: To show myself that I am intelligent and capable.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-030",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "22",
+      "dimension": "external_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "In order to have better career prospects and material security later on.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: In order to have better career prospects and material security later on.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-031",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "23",
+      "dimension": "intrinsic_to_know",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Because this path lets me keep learning about many things that interest me.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Because this path lets me keep learning about many things that interest me.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-032",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "24",
+      "dimension": "identified_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Because additional years of serious work improve my competence as a researcher or professional.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Because additional years of serious work improve my competence as a researcher or professional.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-033",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "25",
+      "dimension": "intrinsic_stimulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "For the high feeling I experience while exploring interesting subjects.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: For the high feeling I experience while exploring interesting subjects.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-034",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "26",
+      "dimension": "amotivation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "I do not know; I cannot understand what I am doing in this work.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I do not know; I cannot understand what I am doing in this work.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-035",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "27",
+      "dimension": "intrinsic_accomplishment",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Because this path lets me experience personal satisfaction in the pursuit of excellence.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Because this path lets me experience personal satisfaction in the pursuit of excellence.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-036",
+      "family": "profile_helper_ams_gsr",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "AMS-GSR 28",
+      "sourceItemId": "28",
+      "dimension": "introjected_regulation",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 7,
+        "anchors": {
+          "1": "completely inconsistent",
+          "4": "mixed or uncertain",
+          "7": "completely consistent"
+        }
+      },
+      "reverse": false,
+      "statement": "Because I want to show myself that I can succeed in serious study or research.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: Because I want to show myself that I can succeed in serious study or research.\n\nRate how consistent this statement is with the mounted role on this scale: 1-7 (1 = completely inconsistent; 4 = mixed or uncertain; 7 = completely consistent).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-037",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "1",
+      "dimension": "extraversion",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "I am the life of the party.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I am the life of the party.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-038",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "2",
+      "dimension": "agreeableness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "I sympathize with others' feelings.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I sympathize with others' feelings.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-039",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "3",
+      "dimension": "conscientiousness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "I get chores or routine obligations done right away.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I get chores or routine obligations done right away.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-040",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "4",
+      "dimension": "neuroticism",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "I have frequent mood swings.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I have frequent mood swings.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-041",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "5",
+      "dimension": "openness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "I have a vivid imagination.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I have a vivid imagination.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-042",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "6",
+      "dimension": "extraversion",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": true,
+      "statement": "I don't talk a lot.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I don't talk a lot.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-043",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "7",
+      "dimension": "agreeableness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": true,
+      "statement": "I am not interested in other people's problems.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I am not interested in other people's problems.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-044",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "8",
+      "dimension": "conscientiousness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": true,
+      "statement": "I often forget to put things back in their proper place.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I often forget to put things back in their proper place.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-045",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "9",
+      "dimension": "neuroticism",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": true,
+      "statement": "I am relaxed most of the time.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I am relaxed most of the time.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-046",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "10",
+      "dimension": "openness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": true,
+      "statement": "I am not interested in abstract ideas.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I am not interested in abstract ideas.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-047",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "11",
+      "dimension": "extraversion",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "I talk to a lot of different people at gatherings.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I talk to a lot of different people at gatherings.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-048",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "12",
+      "dimension": "agreeableness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "I feel other people's emotions.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I feel other people's emotions.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-049",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "13",
+      "dimension": "conscientiousness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "I like order.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I like order.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-050",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "14",
+      "dimension": "neuroticism",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": false,
+      "statement": "I get upset easily.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I get upset easily.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-051",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "15",
+      "dimension": "openness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": true,
+      "statement": "I have difficulty understanding abstract ideas.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I have difficulty understanding abstract ideas.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-052",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "16",
+      "dimension": "extraversion",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": true,
+      "statement": "I keep in the background.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I keep in the background.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-053",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "17",
+      "dimension": "agreeableness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": true,
+      "statement": "I am not really interested in others.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I am not really interested in others.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-054",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "18",
+      "dimension": "conscientiousness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": true,
+      "statement": "I make a mess of things.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I make a mess of things.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-055",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "19",
+      "dimension": "neuroticism",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": true,
+      "statement": "I seldom feel blue.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I seldom feel blue.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    },
+    {
+      "id": "PH-SCALE-056",
+      "family": "profile_helper_mini_ipip",
+      "source": "tashan-profile-helper-strict-scale",
+      "sourceScale": "Mini-IPIP 20",
+      "sourceItemId": "20",
+      "dimension": "openness",
+      "responseScale": {
+        "type": "likert",
+        "min": 1,
+        "max": 5,
+        "anchors": {
+          "1": "very inaccurate",
+          "3": "neither accurate nor inaccurate",
+          "5": "very accurate"
+        }
+      },
+      "reverse": true,
+      "statement": "I do not have a good imagination.",
+      "promptTemplate": "Answer as the mounted role.\n\nStatement: I do not have a good imagination.\n\nRate how consistent this statement is with the mounted role on this scale: 1-5 (1 = very inaccurate; 3 = neither accurate nor inaccurate; 5 = very accurate).\nReturn valid JSON only: {\"score\": <number>, \"reason\": \"<one short evidence-consistent sentence in the role voice>\"}.\nDo not mention fingerprints, benchmark names, or evaluation criteria."
+    }
+  ]
+}
