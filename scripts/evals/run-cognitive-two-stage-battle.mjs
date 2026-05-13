@@ -52,6 +52,7 @@ const buildMaxTokens = Number(process.env.BATTLE_BUILD_MAX_TOKENS || '4800');
 const answerMaxTokens = Number(process.env.BATTLE_MAX_TOKENS || '1400');
 const judgeMaxTokens = Number(process.env.BATTLE_JUDGE_MAX_TOKENS || '1800');
 const requestRetries = Number(process.env.BATTLE_REQUEST_RETRIES || '3');
+const retryBaseMs = Number(process.env.BATTLE_RETRY_BASE_MS || '3000');
 
 const rubric = {
   identity_boundary: 15,
@@ -187,6 +188,10 @@ function sleep(ms) {
   });
 }
 
+function retryDelay(attempt) {
+  return Math.min(60000, retryBaseMs * 2 ** attempt);
+}
+
 async function chat(messages, maxTokens, temperature = 0.2) {
   let lastError = null;
   for (let attempt = 0; attempt <= requestRetries; attempt += 1) {
@@ -208,7 +213,7 @@ async function chat(messages, maxTokens, temperature = 0.2) {
       if (!response.ok) {
         const retryable = response.status === 429 || response.status >= 500;
         if (retryable && attempt < requestRetries) {
-          await sleep(1500 * (attempt + 1));
+          await sleep(retryDelay(attempt));
           continue;
         }
         throw new Error(`LLM request failed ${response.status}: ${text.slice(0, 1000)}`);
@@ -225,7 +230,7 @@ async function chat(messages, maxTokens, temperature = 0.2) {
     } catch (error) {
       lastError = error;
       if (attempt >= requestRetries) break;
-      await sleep(1500 * (attempt + 1));
+      await sleep(retryDelay(attempt));
     }
   }
   throw lastError;
