@@ -21,6 +21,7 @@ const outPath = path.resolve(
 );
 const offset = Number(arg('offset', '0'));
 const limit = Number(arg('limit', '0'));
+const batchSize = Number(arg('batch-size', process.env.CODEX_BATTLE_BATCH_SIZE || '1'));
 const roleFilter = arg('roles', '')
   .split(',')
   .map((role) => role.trim())
@@ -93,6 +94,49 @@ function extractJson(text) {
   return JSON.parse(candidate.slice(first, last + 1));
 }
 
+function extractAnswerBatch(text, tasks) {
+  const parsed = extractJson(text);
+  const answers = Array.isArray(parsed) ? parsed : parsed.answers;
+  if (!Array.isArray(answers)) throw new Error(`Codex answer batch is not an array: ${text.slice(0, 500)}`);
+  const byId = new Map(answers.map((answer) => [answer.taskId, answer]));
+  return Object.fromEntries(
+    tasks.map((task) => {
+      const answer = byId.get(task.id);
+      if (!answer) throw new Error(`Missing answer for task ${task.id}`);
+      return [
+        task.id,
+        {
+          content: JSON.stringify({
+            score: Number(answer.score),
+            reason: String(answer.reason ?? '').trim(),
+          }),
+        },
+      ];
+    }),
+  );
+}
+
+function extractJudgeBatch(text, tasks) {
+  const parsed = extractJson(text);
+  const judgments = Array.isArray(parsed) ? parsed : parsed.judgments;
+  if (!Array.isArray(judgments)) throw new Error(`Codex judge batch is not an array: ${text.slice(0, 500)}`);
+  const byId = new Map(judgments.map((judgment) => [judgment.taskId, judgment]));
+  return Object.fromEntries(
+    tasks.map((task) => {
+      const judgment = byId.get(task.id);
+      if (!judgment) throw new Error(`Missing judgment for task ${task.id}`);
+      return [
+        task.id,
+        {
+          scores: judgment.scores,
+          winner: ['x', 'y', 'tie'].includes(judgment.winner) ? judgment.winner : 'tie',
+          judge_note: String(judgment.judge_note ?? '').trim(),
+        },
+      ];
+    }),
+  );
+}
+
 async function codexExec(prompt, tag) {
   await mkdir(tmpDir, { recursive: true });
   let lastError = null;
@@ -160,6 +204,38 @@ function answerPrompt({ systemId, role, skill, evidence, task }) {
   ].join('\n');
 }
 
+function answerBatchPrompt({ systemId, role, skill, evidence, tasks }) {
+  const systemLabel = systemId === 'nuwa_generated_skill' ? 'Nuwa skill' : 'cognitive skill';
+  return [
+    '你是一个非交互评测生成器。只输出最终 JSON，不要解释。',
+    '',
+    `## Mounted system: ${systemLabel}`,
+    skill,
+    '',
+    '## Shared role evidence',
+    evidence,
+    '',
+    '## Runtime instruction',
+    `Mount the role "${role}" directly from the evidence and the mounted system above.`,
+    'Do not search the web. Do not mention benchmark names. Do not say you are AI.',
+    'Answer every questionnaire item as the mounted role.',
+    '',
+    '## Tasks',
+    JSON.stringify(
+      tasks.map((task) => ({
+        taskId: task.id,
+        prompt: task.prompt,
+      })),
+      null,
+      2,
+    ),
+    '',
+    'Return valid JSON only in this exact shape:',
+    '{"answers":[{"taskId":"...","score":0,"reason":"one short evidence-consistent sentence in the role voice"}]}',
+    'Return one answer for every taskId, preserving taskId exactly.',
+  ].join('\n');
+}
+
 function judgePrompt({ task, evidence, answerX, answerY }) {
   const fingerprintBlock = task.targetFingerprint
     ? [
@@ -192,6 +268,36 @@ function judgePrompt({ task, evidence, answerX, answerY }) {
     '',
     'Return exactly this JSON shape:',
     '{"scores":{"x":{"identity_boundary":0,"cognitive_model_fidelity":0,"expression_dna":0,"situation_fit":0,"non_genericness":0,"safety_honesty":0},"y":{"identity_boundary":0,"cognitive_model_fidelity":0,"expression_dna":0,"situation_fit":0,"non_genericness":0,"safety_honesty":0}},"winner":"x|y|tie","judge_note":"short reason"}',
+  ].join('\n');
+}
+
+function judgeBatchPrompt({ tasks, evidence, pairs }) {
+  return [
+    'You are a strict blind judge for role-likeness evaluation. Return valid JSON only. No markdown.',
+    '',
+    '## Shared target role evidence',
+    evidence,
+    '',
+    '## Rubric',
+    'For each task, score each axis from 0 to 5. Axes: identity_boundary, cognitive_model_fidelity, expression_dna, situation_fit, non_genericness, safety_honesty.',
+    'Choose winner as "x", "y", or "tie" for each task.',
+    '',
+    '## Tasks and anonymized answers',
+    JSON.stringify(
+      tasks.map((task) => ({
+        taskId: task.id,
+        prompt: task.prompt,
+        targetFingerprint: task.targetFingerprint ?? null,
+        answerX: pairs[task.id].x.answer.content,
+        answerY: pairs[task.id].y.answer.content,
+      })),
+      null,
+      2,
+    ),
+    '',
+    'Return valid JSON only in this exact shape:',
+    '{"judgments":[{"taskId":"...","scores":{"x":{"identity_boundary":0,"cognitive_model_fidelity":0,"expression_dna":0,"situation_fit":0,"non_genericness":0,"safety_honesty":0},"y":{"identity_boundary":0,"cognitive_model_fidelity":0,"expression_dna":0,"situation_fit":0,"non_genericness":0,"safety_honesty":0}},"winner":"x|y|tie","judge_note":"short reason"}]}',
+    'Return one judgment for every taskId, preserving taskId exactly.',
   ].join('\n');
 }
 
@@ -259,49 +365,101 @@ const allTasks = tasksSpec.tasks.filter((task) => !roleFilter.length || roleFilt
 const tasks = limit > 0 ? allTasks.slice(offset, offset + limit) : allTasks.slice(offset);
 const records = [];
 
-for (const task of tasks) {
-  const { evidence, evidencePaths } = await evidenceForRole(tasksSpec, task.role);
-  const nuwaRaw = await codexExec(
-    answerPrompt({ systemId: 'nuwa_generated_skill', role: task.role, skill: nuwaSkill, evidence, task }),
-    `${task.id}-nuwa`,
-  );
-  const cognitiveRaw = await codexExec(
-    answerPrompt({ systemId: 'cognitive_generated_likeness', role: task.role, skill: cognitiveSkill, evidence, task }),
-    `${task.id}-cognitive`,
-  );
-  const seed = stableHash(`${task.id}:${task.role}`);
-  const xIsNuwa = seed % 2 === 0;
-  const anonymized = xIsNuwa
-    ? {
-        x: { system: 'nuwa_generated_skill', answer: { content: nuwaRaw.trim() } },
-        y: { system: 'cognitive_generated_likeness', answer: { content: cognitiveRaw.trim() } },
-      }
-    : {
-        x: { system: 'cognitive_generated_likeness', answer: { content: cognitiveRaw.trim() } },
-        y: { system: 'nuwa_generated_skill', answer: { content: nuwaRaw.trim() } },
-      };
-  const judgeRaw = await codexExec(
-    judgePrompt({ task, evidence, answerX: anonymized.x.answer.content, answerY: anonymized.y.answer.content }),
-    `${task.id}-judge`,
-  );
-  records.push({
-    taskId: task.id,
-    taskMeta: taskScaleMeta(task),
-    role: task.role,
-    family: task.family,
-    source: task.source,
-    prompt: task.prompt,
-    evidencePaths,
-    artifactPaths: {
-      nuwa_generated_skill: '../nuwa-skill/SKILL.md',
-      cognitive_generated_likeness: 'skills/cognitive/SKILL.md',
-    },
-    anonymized,
-    judge: { raw: { content: judgeRaw.trim() }, parsed: extractJson(judgeRaw) },
-  });
-  const winner = records.at(-1).judge.parsed.winner;
-  const winnerSystem = winner === 'tie' ? 'tie' : records.at(-1).anonymized[winner].system;
-  process.stdout.write(`${task.id} ${task.role} ${task.family} winner=${winnerSystem}\n`);
+for (let start = 0; start < tasks.length; start += batchSize) {
+  const batch = tasks.slice(start, start + batchSize);
+  const role = batch[0].role;
+  if (!batch.every((task) => task.role === role)) throw new Error('A batch cannot cross roles.');
+  const { evidence, evidencePaths } = await evidenceForRole(tasksSpec, role);
+  const nuwaRaw =
+    batch.length === 1
+      ? await codexExec(
+          answerPrompt({ systemId: 'nuwa_generated_skill', role, skill: nuwaSkill, evidence, task: batch[0] }),
+          `${batch[0].id}-nuwa`,
+        )
+      : await codexExec(
+          answerBatchPrompt({ systemId: 'nuwa_generated_skill', role, skill: nuwaSkill, evidence, tasks: batch }),
+          `${batch[0].id}-${batch.at(-1).id}-nuwa`,
+        );
+  const cognitiveRaw =
+    batch.length === 1
+      ? await codexExec(
+          answerPrompt({
+            systemId: 'cognitive_generated_likeness',
+            role,
+            skill: cognitiveSkill,
+            evidence,
+            task: batch[0],
+          }),
+          `${batch[0].id}-cognitive`,
+        )
+      : await codexExec(
+          answerBatchPrompt({
+            systemId: 'cognitive_generated_likeness',
+            role,
+            skill: cognitiveSkill,
+            evidence,
+            tasks: batch,
+          }),
+          `${batch[0].id}-${batch.at(-1).id}-cognitive`,
+        );
+  const nuwaAnswers =
+    batch.length === 1
+      ? { [batch[0].id]: { content: nuwaRaw.trim() } }
+      : extractAnswerBatch(nuwaRaw, batch);
+  const cognitiveAnswers =
+    batch.length === 1
+      ? { [batch[0].id]: { content: cognitiveRaw.trim() } }
+      : extractAnswerBatch(cognitiveRaw, batch);
+  const pairs = {};
+  for (const task of batch) {
+    const seed = stableHash(`${task.id}:${task.role}`);
+    const xIsNuwa = seed % 2 === 0;
+    pairs[task.id] = xIsNuwa
+      ? {
+          x: { system: 'nuwa_generated_skill', answer: nuwaAnswers[task.id] },
+          y: { system: 'cognitive_generated_likeness', answer: cognitiveAnswers[task.id] },
+        }
+      : {
+          x: { system: 'cognitive_generated_likeness', answer: cognitiveAnswers[task.id] },
+          y: { system: 'nuwa_generated_skill', answer: nuwaAnswers[task.id] },
+        };
+  }
+  const judgeRaw =
+    batch.length === 1
+      ? await codexExec(
+          judgePrompt({
+            task: batch[0],
+            evidence,
+            answerX: pairs[batch[0].id].x.answer.content,
+            answerY: pairs[batch[0].id].y.answer.content,
+          }),
+          `${batch[0].id}-judge`,
+        )
+      : await codexExec(
+          judgeBatchPrompt({ tasks: batch, evidence, pairs }),
+          `${batch[0].id}-${batch.at(-1).id}-judge`,
+        );
+  const judgments = batch.length === 1 ? { [batch[0].id]: extractJson(judgeRaw) } : extractJudgeBatch(judgeRaw, batch);
+  for (const task of batch) {
+    records.push({
+      taskId: task.id,
+      taskMeta: taskScaleMeta(task),
+      role: task.role,
+      family: task.family,
+      source: task.source,
+      prompt: task.prompt,
+      evidencePaths,
+      artifactPaths: {
+        nuwa_generated_skill: '../nuwa-skill/SKILL.md',
+        cognitive_generated_likeness: 'skills/cognitive/SKILL.md',
+      },
+      anonymized: pairs[task.id],
+      judge: { raw: { content: judgeRaw.trim() }, parsed: judgments[task.id] },
+    });
+    const winner = records.at(-1).judge.parsed.winner;
+    const winnerSystem = winner === 'tie' ? 'tie' : records.at(-1).anonymized[winner].system;
+    process.stdout.write(`${task.id} ${task.role} ${task.family} winner=${winnerSystem}\n`);
+  }
   await writeFile(
     outPath,
     `${JSON.stringify(
