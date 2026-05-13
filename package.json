@@ -15,6 +15,7 @@
     "eval:codex-profile-helper-all": "node scripts/evals/generate-codex-mounted-profile-helper-all-nuwa-comparison.mjs",
     "eval:codex-profile-helper-smoke": "node scripts/evals/generate-codex-mounted-profile-helper-smoke.mjs",
     "eval:score-profile-helper": "node scripts/evals/score-profile-helper-questionnaire-results.mjs",
+    "eval:codex-mounted-scale": "node scripts/evals/run-codex-mounted-scale-battle.mjs",
     "eval:two-stage:dry-run": "node scripts/evals/run-cognitive-two-stage-battle.mjs --dry-run",
     "eval:codex-mounted-pilot": "node scripts/evals/generate-codex-mounted-all-nuwa-results.mjs"
   }
