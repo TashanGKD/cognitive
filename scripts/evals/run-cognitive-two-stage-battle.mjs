@@ -75,13 +75,110 @@ function weighted(scores) {
   return Object.entries(rubric).reduce((sum, [axis, weight]) => sum + Number(scores?.[axis] ?? 0) * weight, 0);
 }
 
+function parseJsonOrRepair(candidate) {
+  try {
+    return JSON.parse(candidate);
+  } catch {
+    const stack = [];
+    let inString = false;
+    let escaped = false;
+    for (const char of candidate) {
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (char === '\\') {
+        escaped = true;
+        continue;
+      }
+      if (char === '"') {
+        inString = !inString;
+        continue;
+      }
+      if (inString) continue;
+      if (char === '{') stack.push('}');
+      if (char === '[') stack.push(']');
+      if ((char === '}' || char === ']') && stack.at(-1) === char) stack.pop();
+    }
+    return JSON.parse(candidate + stack.reverse().join(''));
+  }
+}
+
+function completeJudge(parsed, source = 'parsed') {
+  const neutral = {
+    identity_boundary: 3,
+    cognitive_model_fidelity: 3,
+    expression_dna: 3,
+    situation_fit: 3,
+    non_genericness: 3,
+    safety_honesty: 3,
+  };
+  const scores = {
+    x: { ...neutral, ...(parsed?.scores?.x ?? {}) },
+    y: { ...neutral, ...(parsed?.scores?.y ?? {}) },
+  };
+  let winner = parsed?.winner;
+  if (!['x', 'y', 'tie'].includes(winner)) {
+    const xScore = weighted(scores.x);
+    const yScore = weighted(scores.y);
+    winner = xScore === yScore ? 'tie' : xScore > yScore ? 'x' : 'y';
+  }
+  return {
+    scores,
+    winner,
+    judge_note: parsed?.judge_note || `judge JSON completed from ${source}`,
+  };
+}
+
+function fallbackJudge(error) {
+  return completeJudge(
+    {
+      judge_note: `fallback: judge returned invalid JSON twice (${error.message.slice(0, 120)})`,
+      winner: 'tie',
+    },
+    'fallback',
+  );
+}
+
 function extractJson(text) {
   const fenced = text.match(/```json\s*([\s\S]*?)```/i);
   const candidate = fenced ? fenced[1] : text;
   const first = candidate.indexOf('{');
   const last = candidate.lastIndexOf('}');
   if (first < 0 || last < first) throw new Error(`judge did not return JSON: ${text.slice(0, 500)}`);
-  return JSON.parse(candidate.slice(first, last + 1));
+  return completeJudge(parseJsonOrRepair(candidate.slice(first, last + 1)));
+}
+
+async function parseJudgeJsonWithRetry({ initialJudge, judgeMessages }) {
+  try {
+    return { raw: initialJudge, parsed: extractJson(initialJudge.content) };
+  } catch (error) {
+    const retryJudge = await chat(
+      [
+        ...judgeMessages,
+        {
+          role: 'user',
+          content: [
+            'Your previous response was not valid JSON and could not be parsed.',
+            `Parser error: ${error.message}`,
+            'Return the same judgment again, but as valid JSON only, using exactly the requested keys.',
+          ].join('\n'),
+        },
+      ],
+      judgeMaxTokens,
+      0,
+    );
+    try {
+      return { raw: retryJudge, parsed: extractJson(retryJudge.content), retryFromInvalidJson: initialJudge.content };
+    } catch (retryError) {
+      return {
+        raw: retryJudge,
+        parsed: fallbackJudge(retryError),
+        retryFromInvalidJson: initialJudge.content,
+        fallbackFromInvalidJson: retryJudge.content,
+      };
+    }
+  }
 }
 
 function sleep(ms) {
@@ -291,8 +388,7 @@ async function judgeTask({ task, evidence, answerX, answerY }) {
         '',
       ].join('\n')
     : '';
-  const judge = await chat(
-    [
+  const judgeMessages = [
       {
         role: 'system',
         content: [
@@ -325,14 +421,9 @@ async function judgeTask({ task, evidence, answerX, answerY }) {
           '{"scores":{"x":{"identity_boundary":0,"cognitive_model_fidelity":0,"expression_dna":0,"situation_fit":0,"non_genericness":0,"safety_honesty":0},"y":{"identity_boundary":0,"cognitive_model_fidelity":0,"expression_dna":0,"situation_fit":0,"non_genericness":0,"safety_honesty":0}},"winner":"x|y|tie","judge_note":"short reason"}',
         ].join('\n'),
       },
-    ],
-    judgeMaxTokens,
-    0,
-  );
-  return {
-    raw: judge,
-    parsed: extractJson(judge.content),
-  };
+    ];
+  const judge = await chat(judgeMessages, judgeMaxTokens, 0);
+  return parseJudgeJsonWithRetry({ initialJudge: judge, judgeMessages });
 }
 
 function summarize(records) {
